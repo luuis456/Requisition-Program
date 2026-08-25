@@ -1,0 +1,33 @@
+@model List<User>
+<table class="table req-table align-middle mb-0">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Número de reloj</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th class="text-center">Estatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td data-label="Nombre" class="fw-medium">@user.Name</td>
+                <td data-label="Reloj"><span class="items-chip">@user.EmployeeNumber</span></td>
+                <td data-label="Correo">@user.Email</td>
+                <td data-label="Rol">@StatusText.For(user.Role)</td>
+                <td data-label="Estatus" class="text-center">
+                    @if (user.IsActive)
+                    {
+                        <span class="fulfillment-badge fulfillment-complete">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="fulfillment-badge fulfillment-none">Inactivo</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

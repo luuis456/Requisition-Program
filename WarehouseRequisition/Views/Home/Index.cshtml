@@ -1,0 +1,144 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="page-heading mb-4">
+    <h2 class="mb-1">Buen día</h2>
+    <p class="text-secondary mb-0">Este es el estado actual de las requisiciones de material.</p>
+</div>
+
+<div class="row g-3 mb-4 stat-grid">
+    @foreach (var (status, count) in Model.Counts)
+    {
+        var isPending = status is RequisitionStatus.Open or RequisitionStatus.InProgress;
+        <div class="col-6 col-md-4 col-xl">
+            <a class="stat-card tone-@(StatusText.ToneFor(status))"
+               asp-controller="Requisitions"
+               asp-action="Index"
+               asp-route-Status="@((int)status)">
+                <div class="stat-icon">
+                    <i class="bi @(StatusText.IconFor(status))"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number">@count</span>
+                    <span class="stat-label">@StatusText.For(status)</span>
+                </div>
+                <i class="bi bi-chevron-right stat-arrow"></i>
+            </a>
+        </div>
+    }
+</div>
+
+<div class="row g-4">
+    <div class="col-xl-7 d-flex flex-column gap-4">
+        <section class="app-card">
+            <div class="app-card-header">
+                <div>
+                    <h5 class="mb-0"><i class="bi bi-hourglass-split me-2 text-primary"></i>Requisiciones que requieren atención</h5>
+                    <p class="text-secondary small mb-0">Requisiciones actualmente en proceso de surtido.</p>
+                </div>
+            </div>
+            <div class="app-card-body p-0">
+                @if (Model.AttentionRequisitions.Count == 0)
+                {
+                    <partial name="_EmptyState" model='new EmptyStateViewModel { Icon = "bi-check2-all", Title = "No hay requisiciones en proceso", Description = "Todo el surtido está al día." }' />
+                }
+                else
+                {
+                    <ul class="attention-list list-unstyled mb-0">
+                        @foreach (var requisition in Model.AttentionRequisitions)
+                        {
+                            var percent = requisition.TotalItems == 0 ? 0 : (int)Math.Round(requisition.ReviewedItems * 100.0 / requisition.TotalItems);
+                            <li class="attention-item">
+                                <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                                    <a asp-controller="Fulfillment" asp-action="Index"
+                                       asp-route-requisitionNumber="@requisition.RequisitionNumber"
+                                       class="req-number fw-semibold">@requisition.RequisitionNumber</a>
+                                    <partial name="_StatusBadge" model="requisition.Status" />
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                    <div class="progress flex-grow-1" style="height:8px;">
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width:@percent%"></div>
+                                    </div>
+                                    <small class="text-nowrap text-secondary">@requisition.ReviewedItems de @requisition.TotalItems revisados</small>
+                                </div>
+                                <small class="text-secondary">
+                                    <i class="bi bi-person me-1"></i>@requisition.RequesterName
+                                    <i class="bi bi-diagram-3 ms-3 me-1"></i>@requisition.MachineName · @requisition.AreaName
+                                </small>
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        </section>
+
+        <section class="app-card">
+            <div class="app-card-header">
+                <div>
+                    <h5 class="mb-0"><i class="bi bi-table me-2 text-primary"></i>Requisiciones recientes</h5>
+                </div>
+                <a asp-controller="Requisitions" asp-action="Index" class="btn btn-sm btn-outline-primary rounded-pill">
+                    Ver todas <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+            <div class="app-card-body p-0">
+                @if (Model.RecentRequisitions.Count == 0)
+                {
+                    <partial name="_EmptyState" model='new EmptyStateViewModel { Icon = "bi-inbox", Title = "No hay requisiciones registradas", Description = "Crea la primera requisición para comenzar." }' />
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table req-table align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Número</th>
+                                    <th>Fecha</th>
+                                    <th>Requisitor</th>
+                                    <th>Materiales</th>
+                                    <th>Estatus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var requisition in Model.RecentRequisitions)
+                                {
+                                    <tr>
+                                        <td>
+                                            <button type="button" class="req-number fw-semibold border-0 bg-transparent p-0 text-start"
+                                                    data-load-details="@requisition.Id">
+                                                @requisition.RequisitionNumber
+                                            </button>
+                                        </td>
+                                        <td data-label="Fecha">@requisition.CreatedAt.ToString("dd/MM/yyyy")</td>
+                                        <td data-label="Requisitor">@requisition.RequesterName</td>
+                                        <td data-label="Materiales"><span class="items-chip">@requisition.TotalItems</span></td>
+                                        <td data-label="Estatus"><partial name="_StatusBadge" model="requisition.Status" /></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+
+    <div class="col-xl-5">
+        <section class="app-card h-100">
+            <div class="app-card-header">
+                <div>
+                    <h5 class="mb-0"><i class="bi bi-activity me-2 text-primary"></i>Actividad reciente</h5>
+                </div>
+            </div>
+            <div class="app-card-body">
+                <vc:recent-activity max-entries="8" />
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/requisitions.js" asp-append-version="true"></script>
+}

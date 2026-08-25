@@ -1,0 +1,16 @@
+@model EmptyStateViewModel
+
+<div class="empty-state">
+    <div class="empty-state-icon">
+        <i class="bi @Model.Icon"></i>
+    </div>
+    <h3>@Model.Title</h3>
+    @if (!string.IsNullOrWhiteSpace(Model.Description))
+    {
+        <p>@Model.Description</p>
+    }
+    @if (ViewBag.EmptyStateAction != null)
+    {
+        @ViewBag.EmptyStateAction
+    }
+</div>

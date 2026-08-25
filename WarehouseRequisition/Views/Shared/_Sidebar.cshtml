@@ -1,0 +1,44 @@
+@{
+    var activeSection = ViewData["ActiveSection"] as string ?? string.Empty;
+
+    var navigationItems = new[]
+    {
+        new { Key = "home", Label = "Inicio", Icon = "bi-speedometer2", Controller = "Home", Action = "Index" },
+        new { Key = "create", Label = "Nueva requisición", Icon = "bi-plus-circle", Controller = "Requisitions", Action = "Create" },
+        new { Key = "pending", Label = "Requisiciones pendientes", Icon = "bi-hourglass-split", Controller = "Requisitions", Action = "Index" },
+        new { Key = "history", Label = "Historial", Icon = "bi-clock-history", Controller = "Requisitions", Action = "History" },
+        new { Key = "catalog", Label = "Catálogos", Icon = "bi-collection", Controller = "Catalog", Action = "Index" },
+        new { Key = "settings", Label = "Configuración", Icon = "bi-gear", Controller = "Home", Action = "Settings" }
+    };
+}
+
+<div class="sidebar-brand">
+    <span class="brand-logo"><i class="bi bi-boxes"></i></span>
+    <span class="brand-text">
+        <strong>Requisiciones</strong>
+        <small>Almacén · Producción</small>
+    </span>
+</div>
+
+<nav class="sidebar-nav flex-grow-1" aria-label="Navegación principal">
+    <ul class="nav flex-column gap-1">
+        @foreach (var item in navigationItems)
+        {
+            <li class="nav-item">
+                <a class="nav-link @(activeSection == item.Key ? "active" : string.Empty)"
+                   asp-controller="@item.Controller" asp-action="@item.Action">
+                    <i class="bi @item.Icon"></i>
+                    <span>@item.Label</span>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
+
+<div class="sidebar-footer">
+    <span class="user-avatar">ML</span>
+    <span class="user-meta">
+        <strong>María Fernanda López</strong>
+        <small>Almacén · Reloj 20114</small>
+    </span>
+</div>

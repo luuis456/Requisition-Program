@@ -1,0 +1,22 @@
+@model List<Plant>
+<table class="table req-table align-middle mb-0">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th class="text-center">Estatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plant in Model)
+        {
+            <tr>
+                <td data-label="Código"><span class="items-chip">@plant.Code</span></td>
+                <td data-label="Nombre" class="fw-medium">@plant.Name</td>
+                <td data-label="Estatus" class="text-center">
+                    <span class="fulfillment-badge fulfillment-complete">Activa</span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

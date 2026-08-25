@@ -1,0 +1,90 @@
+@model SettingsViewModel
+
+<div class="page-heading mb-4">
+    <h2 class="mb-1">Configuración</h2>
+    <p class="text-secondary mb-0">Información del prototipo y de la capa de almacenamiento local.</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-6">
+        <section class="app-card h-100">
+            <div class="app-card-header">
+                <div><h5 class="mb-0"><i class="bi bi-hdd me-2 text-primary"></i>Almacenamiento</h5></div>
+            </div>
+            <div class="app-card-body">
+                <dl class="details-grid mb-0">
+                    <div><dt>Modo</dt><dd>@Model.StorageMode</dd></div>
+                    <div><dt>Archivo de datos</dt><dd><code class="small">@Model.DataFilePath</code></dd></div>
+                    <div><dt>Estado del archivo</dt><dd>
+                        @if (Model.DataFileExists)
+                        {
+                            <span class="fulfillment-badge fulfillment-complete">Existe</span>
+                        }
+                        else
+                        {
+                            <span class="fulfillment-badge fulfillment-none">No creado aún</span>
+                        }
+                    </dd></div>
+                </dl>
+                <div class="alert alert-info border-0 rounded-4 mt-3 mb-0 small">
+                    <i class="bi bi-info-circle me-1"></i>
+                    El prototipo persiste los datos en un archivo JSON local. La arquitectura está
+                    preparada para migrar a Entity Framework Core + PostgreSQL sin cambios en controladores ni vistas.
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-lg-6 d-flex flex-column gap-4">
+        <section class="app-card">
+            <div class="app-card-header">
+                <div><h5 class="mb-0"><i class="bi bi-collection me-2 text-primary"></i>Datos registrados</h5></div>
+            </div>
+            <div class="app-card-body pb-2">
+                <dl class="details-grid mb-0">
+                    <div><dt>Requisiciones</dt><dd>@Model.RequisitionCount</dd></div>
+                    <div><dt>Partes en catálogo</dt><dd>@Model.PartCount</dd></div>
+                    <div><dt>Usuarios</dt><dd>@Model.UserCount</dd></div>
+                    <div><dt>URL base para códigos QR</dt><dd class="text-break">@Model.QrBaseUrl</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="app-card">
+            <div class="app-card-header">
+                <div><h5 class="mb-0"><i class="bi bi-arrow-counterclockwise me-2 text-primary"></i>Mantenimiento</h5></div>
+            </div>
+            <div class="app-card-body">
+                <p class="small text-secondary mb-3">
+                    Restablece todos los datos al estado inicial de demostración.
+                    Las requisiciones capturadas se perderán.
+                </p>
+                <form asp-controller="Home" asp-action="ResetDemoData" method="post" id="resetDataForm">
+                    @Html.AntiForgeryToken()
+                    <button type="submit" class="btn btn-outline-danger rounded-pill px-4" id="resetDataButton">
+                        <i class="bi bi-trash3 me-1"></i> Restablecer datos de demostración
+                    </button>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('resetDataForm');
+            if (!form || !window.App) { return; }
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                window.App.confirm(
+                    'Restablecer datos',
+                    '¿Deseas restablecer todos los datos al estado inicial de demostración? Esta acción no se puede deshacer.',
+                    { confirmText: 'Sí, restablecer' }
+                ).then(function (confirmed) {
+                    if (confirmed) { form.submit(); }
+                });
+            });
+        });
+    </script>
+}

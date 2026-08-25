@@ -1,0 +1,26 @@
+@model List<ActivityEntryViewModel>
+
+@if (Model.Count == 0)
+{
+    <partial name="_EmptyState" model='new EmptyStateViewModel { Icon = "bi-activity", Title = "Sin actividad reciente" }' />
+}
+else
+{
+    <ul class="activity-feed">
+        @foreach (var entry in Model)
+        {
+            <li class="activity-item">
+                <span class="activity-icon tone-@entry.Tone">
+                    <i class="bi @entry.Icon"></i>
+                </span>
+                <div class="activity-body">
+                    <p class="activity-title mb-0">@entry.Title</p>
+                    <small class="text-secondary">@entry.Description</small>
+                </div>
+                <time class="activity-time" title="@entry.Timestamp.ToString("dd/MM/yyyy HH:mm")">
+                    @entry.Timestamp.ToString("dd MMM HH:mm")
+                </time>
+            </li>
+        }
+    </ul>
+}

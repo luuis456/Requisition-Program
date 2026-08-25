@@ -1,0 +1,251 @@
+@model CreateRequisitionViewModel
+@{
+    var plants = (List<Plant>)ViewBag.Plants;
+    var areas = (List<Area>)ViewBag.Areas;
+    var machines = (List<Machine>)ViewBag.Machines;
+    var formErrors = ViewBag.FormErrors as List<string>;
+}
+
+<div class="page-heading mb-4">
+    <h2 class="mb-1">Nueva requisición</h2>
+    <p class="text-secondary mb-0">Captura los datos generales y agrega los materiales requeridos.</p>
+</div>
+
+@if (formErrors is { Count: > 0 })
+{
+    <div class="alert alert-danger d-flex gap-3 align-items-start rounded-4 border-0 shadow-sm">
+        <i class="bi bi-exclamation-octagon-fill fs-4"></i>
+        <div class="flex-grow-1">
+            <strong>Revisa la siguiente información:</strong>
+            <ul class="mb-0 mt-1">
+                @foreach (var error in formErrors)
+                {
+                    <li>@error</li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+
+<form id="requisitionForm" asp-action="Create" method="post" novalidate>
+    <div id="itemsInputsContainer"></div>
+
+    <section class="app-card mb-4">
+        <div class="app-card-header">
+            <div><h5 class="mb-0"><i class="bi bi-person-vcard me-2 text-primary"></i>Datos generales</h5></div>
+        </div>
+        <div class="app-card-body">
+            <div class="row g-3">
+                <div class="col-12 col-md-4 col-lg-2">
+                    <label class="form-label fw-semibold">Fecha</label>
+                    <input type="date" class="form-control" asp-for="RequestedDate"
+                           value="@Model.RequestedDate.ToString("yyyy-MM-dd")" required />
+                    <span class="text-danger small field-error" data-field-error></span>
+                </div>
+                <div class="col-12 col-md-8 col-lg-4">
+                    <label class="form-label fw-semibold">Nombre del requisitor</label>
+                    <input type="text" class="form-control" asp-for="RequesterName"
+                           placeholder="Nombre completo" maxlength="100" required />
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <label class="form-label fw-semibold">Número de reloj</label>
+                    <input type="text" class="form-control" asp-for="EmployeeNumber"
+                           placeholder="Ej. 10021" inputmode="numeric" pattern="[0-9]*" maxlength="20" required />
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <label class="form-label fw-semibold">Área</label>
+                    <select class="form-select" asp-for="AreaId" required
+                            data-cascade="area" data-all-areas="@System.Text.Json.JsonSerializer.Serialize(areas.Select(a => new { id = a.Id, name = a.Name, plantId = a.PlantId }))">
+                        <option value="">Selecciona...</option>
+                        @foreach (var area in areas)
+                        {
+                            <option value="@area.Id" selected="@(Model.AreaId == area.Id)" data-plant-id="@area.PlantId">@area.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <label class="form-label fw-semibold">Planta</label>
+                    <select class="form-select" asp-for="PlantId" required data-cascade="plant">
+                        <option value="">Selecciona...</option>
+                        @foreach (var plant in plants)
+                        {
+                            <option value="@plant.Id" selected="@(Model.PlantId == plant.Id)">@plant.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-12 col-md-6 col-lg-2">
+                    <label class="form-label fw-semibold">Máquina</label>
+                    <select class="form-select" asp-for="MachineId" required data-cascade="machine">
+                        <option value="">Selecciona...</option>
+                        @foreach (var machine in machines)
+                        {
+                            <option value="@machine.Id" selected="@(Model.MachineId == machine.Id)" data-area-id="@machine.AreaId">@machine.Code · @machine.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Notas (opcional)</label>
+                    <textarea class="form-control" asp-for="Notes" rows="2" maxlength="500"
+                              placeholder="Instrucciones adicionales para el almacén..."></textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-card mb-4">
+        <div class="app-card-header flex-wrap gap-2">
+            <div>
+                <h5 class="mb-0"><i class="bi bi-box-seam me-2 text-primary"></i>Materiales</h5>
+                <span class="text-secondary small"><span id="itemsCountBadge">0</span> material(es) en la requisición</span>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#manualPartModal">
+                    <i class="bi bi-plus-lg me-1"></i> Agregar parte manual
+                </button>
+                <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#autoGenerateModal">
+                    <i class="bi bi-magic me-1"></i> Agregar partes automáticamente
+                </button>
+            </div>
+        </div>
+        <div class="app-card-body p-0">
+            <div class="table-responsive materials-table-wrap">
+                <table class="table req-table align-middle mb-0" id="materialsTable">
+                    <thead>
+                        <tr>
+                            <th>Número de parte</th>
+                            <th>Descripción</th>
+                            <th class="text-center">Cantidad solicitada</th>
+                            <th>Descripción de cantidad</th>
+                            <th class="text-center">Unidad de medida</th>
+                            <th>Ubicación</th>
+                            <th>Observaciones</th>
+                            <th class="text-end">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materialsBody">
+                        <!-- Rows are rendered client-side by requisitions.js -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="materialsEmptyState">
+                <partial name="_EmptyState" model='new EmptyStateViewModel { Icon = "bi-basket", Title = "Aún no has agregado materiales a esta requisición.", Description = "Usa los botones «Agregar parte manual» o «Agregar partes automáticamente»." }' />
+            </div>
+        </div>
+        <div class="app-card-footer d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <small class="text-secondary">
+                <i class="bi bi-info-circle me-1"></i>La cantidad solicitada debe ser mayor que cero.
+            </small>
+            <div class="d-flex gap-2">
+                <a asp-action="Index" class="btn btn-light border rounded-pill px-4">Cancelar</a>
+                <button type="submit" class="btn btn-success rounded-pill px-4" id="createRequisitionButton">
+                    <i class="bi bi-check2-circle me-1"></i> Crear requisición
+                </button>
+            </div>
+        </div>
+    </section>
+</form>
+
+<!-- Manual part modal -->
+<div class="modal fade" id="manualPartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-4">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-plus-square me-2 text-primary"></i>Agregar parte manual</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold" for="partNumberInput">Número de parte</label>
+                    <div class="position-relative">
+                        <input type="text" class="form-control form-control-lg text-uppercase" id="partNumberInput"
+                               placeholder="Ej. MAT-10001" maxlength="50" />
+                        <div class="list-group position-absolute w-100 shadow-sm mt-1 d-none" id="partSuggestions" style="z-index:1060;"></div>
+                    </div>
+                    <div class="form-text" id="partLookupFeedback"></div>
+                </div>
+
+                <div class="part-info-panel mb-3 d-none" id="partInfoPanel">
+                    <dl class="details-grid compact mb-0">
+                        <div><dt>Descripción</dt><dd id="infoDescription">-</dd></div>
+                        <div><dt>Unidad de medida</dt><dd id="infoUnitOfMeasure">-</dd></div>
+                        <div><dt>Ubicación</dt><dd id="infoLocation">-</dd></div>
+                    </dl>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-6">
+                        <label class="form-label fw-semibold" for="quantityInput">Cantidad solicitada</label>
+                        <input type="number" class="form-control form-control-lg" id="quantityInput"
+                               min="0.01" step="any" placeholder="0" inputmode="decimal" />
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label fw-semibold" for="quantityDescriptionInput">Descripción de cantidad</label>
+                        <input type="text" class="form-control form-control-lg" id="quantityDescriptionInput"
+                               placeholder="Ej. 2 cajas de 10" maxlength="100" />
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label fw-semibold" for="observationsInput">Observaciones</label>
+                        <textarea class="form-control" id="observationsInput" rows="2" maxlength="300"
+                                  placeholder="Detalles para el almacén..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary rounded-pill px-4" id="saveMaterialButton">
+                    <i class="bi bi-check-lg me-1"></i> Agregar material
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Automatic generation modal -->
+<div class="modal fade" id="autoGenerateModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content rounded-4">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-magic me-2 text-primary"></i>Generación automática</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <p class="small text-secondary">
+                    Se generan materiales simulados desde la orden de producción.
+                    En el futuro esta información provendrá del BOM / ERP / SAP / AS400.
+                </p>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold" for="orderNumberInput">Número de orden</label>
+                    <input type="text" class="form-control form-control-lg" id="orderNumberInput" placeholder="Ej. OT-45123" maxlength="30" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold" for="lineSelect">Línea</label>
+                    <select class="form-select form-select-lg" id="lineSelect">
+                        <option value="L1">Línea 1</option>
+                        <option value="L2">Línea 2</option>
+                        <option value="L3">Línea 3</option>
+                        <option value="L4">Línea 4</option>
+                        <option value="L5">Línea 5</option>
+                        <option value="L6">Línea 6</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label fw-semibold" for="generateCountInput">Cantidad de materiales</label>
+                    <input type="number" class="form-control form-control-lg" id="generateCountInput" value="5" min="1" max="15" inputmode="numeric" />
+                </div>
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary rounded-pill px-4" id="generateMaterialsButton">
+                    <i class="bi bi-stars me-1"></i> Generar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.initialItems = @Json.Serialize(Model.Items);
+    </script>
+    <script src="~/js/requisitions.js" asp-append-version="true"></script>
+}

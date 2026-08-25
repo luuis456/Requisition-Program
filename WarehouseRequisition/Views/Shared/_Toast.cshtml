@@ -1,0 +1,20 @@
+@{
+    var toastType = TempData["ToastType"] as string;
+    var toastMessage = TempData["ToastMessage"] as string;
+}
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" aria-live="polite" aria-atomic="true">
+    @if (!string.IsNullOrWhiteSpace(toastMessage))
+    {
+        <div class="toast align-items-center app-toast toast-@toastType border-0 show"
+             data-autohide="true" role="status">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <i class="bi @(toastType switch { "success" => "bi-check-circle-fill", "error" => "bi-x-circle-fill", "warning" => "bi-exclamation-triangle-fill", _ => "bi-info-circle-fill" })"></i>
+                    <span>@toastMessage</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+        </div>
+    }
+</div>

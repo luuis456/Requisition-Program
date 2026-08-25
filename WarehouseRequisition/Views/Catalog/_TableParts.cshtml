@@ -1,0 +1,40 @@
+@model List<Part>
+<table class="table req-table align-middle mb-0" id="partsTable">
+    <thead>
+        <tr>
+            <th>Número de parte</th>
+            <th>Descripción</th>
+            <th>Código de barras</th>
+            <th class="text-center">Unidad de medida</th>
+            <th>Ubicación predeterminada</th>
+            <th class="text-center">Estatus</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var part in Model)
+        {
+            var barcodeUrl = Url.Action("PartBarcode", "Catalog", new { partNumber = part.PartNumber });
+            <tr>
+                <td data-label="Número de parte" class="fw-semibold">@part.PartNumber</td>
+                <td data-label="Descripción">@part.Description</td>
+                <td data-label="Código de barras">
+                    <a href="@(barcodeUrl)&download=true" title="Descargar código de barras de @part.PartNumber">
+                        <img class="barcode-thumb" src="@barcodeUrl" alt="Código de barras @part.PartNumber" loading="lazy" />
+                    </a>
+                </td>
+                <td data-label="Unidad" class="text-center"><span class="items-chip">@part.UnitOfMeasure</span></td>
+                <td data-label="Ubicación"><span class="location-chip"><i class="bi bi-geo-alt me-1"></i>@part.DefaultLocation</span></td>
+                <td data-label="Estatus" class="text-center">
+                    @if (part.IsActive)
+                    {
+                        <span class="fulfillment-badge fulfillment-complete">Activo</span>
+                    }
+                    else
+                    {
+                        <span class="fulfillment-badge fulfillment-none">Inactivo</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

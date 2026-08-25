@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZL+L4m1gJpU=",
+  "success": true,
+  "projectFilePath": "/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/WarehouseRequisition.csproj",
+  "expectedPackageFiles": [
+    "/Users/luis/.nuget/packages/qrcoder/1.6.0/qrcoder.1.6.0.nupkg.sha512",
+    "/Users/luis/.nuget/packages/zxing.net/0.16.10/zxing.net.0.16.10.nupkg.sha512"
+  ],
+  "logs": []
+}

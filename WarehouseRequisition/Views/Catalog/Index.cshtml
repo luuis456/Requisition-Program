@@ -1,0 +1,77 @@
+@model CatalogIndexViewModel
+@{
+    var tabs = new[]
+    {
+        new { Key = "parts", Label = "Partes", Icon = "bi-box-seam", Count = Model.Parts.Count },
+        new { Key = "plants", Label = "Plantas", Icon = "bi-building", Count = Model.Plants.Count },
+        new { Key = "areas", Label = "Áreas", Icon = "bi-grid", Count = Model.Areas.Count },
+        new { Key = "machines", Label = "Máquinas", Icon = "bi-diagram-3", Count = Model.Machines.Count },
+        new { Key = "users", Label = "Usuarios", Icon = "bi-people", Count = Model.Users.Count },
+        new { Key = "shortage-reasons", Label = "Razones de faltante", Icon = "bi-exclamation-triangle", Count = Model.ShortageReasons.Count }
+    };
+}
+
+<div class="page-heading mb-4">
+    <h2 class="mb-1">Catálogos</h2>
+    <p class="text-secondary mb-0">Información maestra utilizada por las requisiciones.</p>
+</div>
+
+<ul class="nav nav-pills catalog-tabs mb-4 gap-2">
+    @foreach (var tab in tabs)
+    {
+        <li class="nav-item">
+            <a class="nav-link rounded-pill @(Model.ActiveTab == tab.Key ? "active" : string.Empty)"
+               asp-controller="Catalog" asp-action="Index" asp-route-tab="@tab.Key">
+                <i class="bi @tab.Icon me-1"></i> @tab.Label
+                <span class="tab-count">@tab.Count</span>
+            </a>
+        </li>
+    }
+</ul>
+
+<div class="app-card">
+    <div class="app-card-body p-0">
+        @switch (Model.ActiveTab)
+        {
+            case "plants":
+                <partial name="_TablePlants" model="Model.Plants" />
+                break;
+            case "areas":
+                <partial name="_TableAreas" model="Model.Areas" />
+                break;
+            case "machines":
+                <partial name="_TableMachines" model="Model.Machines" />
+                break;
+            case "users":
+                <partial name="_TableUsers" model="Model.Users" />
+                break;
+            case "shortage-reasons":
+                <partial name="_TableShortageReasons" model="Model.ShortageReasons" />
+                break;
+            default:
+                <div class="p-3 pb-0">
+                    <div class="input-group catalog-search">
+                        <span class="input-group-text bg-transparent"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control" id="partSearchInput" placeholder="Buscar parte o descripción..." />
+                    </div>
+                </div>
+                <partial name="_TableParts" model="Model.Parts" />
+                break;
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var input = document.getElementById('partSearchInput');
+            if (!input) { return; }
+            input.addEventListener('keyup', function () {
+                var term = input.value.toLowerCase();
+                document.querySelectorAll('#partsTable tbody tr').forEach(function (row) {
+                    row.style.display = row.textContent.toLowerCase().includes(term) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+}

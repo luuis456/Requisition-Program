@@ -1,0 +1,8 @@
+@model FulfillmentStatus
+
+@{
+    var tone = StatusText.ToneFor(Model);
+    var label = StatusText.For(Model);
+}
+
+<span class="fulfillment-badge fulfillment-@tone">@label</span>

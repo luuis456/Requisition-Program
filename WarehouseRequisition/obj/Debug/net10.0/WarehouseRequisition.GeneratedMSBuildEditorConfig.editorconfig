@@ -1,0 +1,124 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WarehouseRequisition
+build_property.RootNamespace = WarehouseRequisition
+build_property.ProjectDir = /Users/luis/Desktop/Requisitions Program/WarehouseRequisition/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/luis/Desktop/Requisitions Program/WarehouseRequisition
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Catalog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0YWxvZy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Catalog/_TableAreas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0YWxvZy9fVGFibGVBcmVhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Catalog/_TableMachines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0YWxvZy9fVGFibGVNYWNoaW5lcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Catalog/_TableParts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0YWxvZy9fVGFibGVQYXJ0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Catalog/_TablePlants.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0YWxvZy9fVGFibGVQbGFudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Catalog/_TableUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2F0YWxvZy9fVGFibGVVc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Fulfillment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRnVsZmlsbG1lbnQvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Home/Settings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TZXR0aW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Requisitions/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVxdWlzaXRpb25zL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Requisitions/History.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVxdWlzaXRpb25zL0hpc3RvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Requisitions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVxdWlzaXRpb25zL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Requisitions/_DetailsModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVxdWlzaXRpb25zL19EZXRhaWxzTW9kYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/Components/RecentActivity/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvUmVjZW50QWN0aXZpdHkvRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/_ConfirmDialog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Db25maXJtRGlhbG9nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/_EmptyState.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19FbXB0eVN0YXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/_FulfillmentStatusBadge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19GdWxmaWxsbWVudFN0YXR1c0JhZGdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19TaWRlYmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/_StatusBadge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19TdGF0dXNCYWRnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/_Toast.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Ub2FzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

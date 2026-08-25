@@ -1,0 +1,1598 @@
+{
+  "SyncRoot": {},
+  "Users": [
+    {
+      "Id": 1,
+      "EmployeeNumber": "10021",
+      "Name": "Laura M\u00E9ndez R\u00EDos",
+      "Email": "laura.mendez@planta.mx",
+      "Role": 0,
+      "IsActive": true
+    },
+    {
+      "Id": 2,
+      "EmployeeNumber": "10088",
+      "Name": "Jorge Ram\u00EDrez Castillo",
+      "Email": "jorge.ramirez@planta.mx",
+      "Role": 0,
+      "IsActive": true
+    },
+    {
+      "Id": 3,
+      "EmployeeNumber": "10145",
+      "Name": "Ana Sof\u00EDa Herrera",
+      "Email": "ana.herrera@planta.mx",
+      "Role": 0,
+      "IsActive": true
+    },
+    {
+      "Id": 4,
+      "EmployeeNumber": "10233",
+      "Name": "Miguel \u00C1ngel Torres",
+      "Email": "miguel.torres@planta.mx",
+      "Role": 0,
+      "IsActive": true
+    },
+    {
+      "Id": 5,
+      "EmployeeNumber": "20114",
+      "Name": "Mar\u00EDa Fernanda L\u00F3pez",
+      "Email": "maria.lopez@planta.mx",
+      "Role": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 6,
+      "EmployeeNumber": "20177",
+      "Name": "Carlos S\u00E1nchez Vega",
+      "Email": "carlos.sanchez@planta.mx",
+      "Role": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 7,
+      "EmployeeNumber": "30102",
+      "Name": "Alejandra Navarro Pineda",
+      "Email": "alejandra.navarro@planta.mx",
+      "Role": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 8,
+      "EmployeeNumber": "30341",
+      "Name": "Roberto D\u00EDaz Fuentes",
+      "Email": "roberto.diaz@planta.mx",
+      "Role": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 9,
+      "EmployeeNumber": "40018",
+      "Name": "Diana Cruz Molina",
+      "Email": "diana.cruz@planta.mx",
+      "Role": 3,
+      "IsActive": true
+    },
+    {
+      "Id": 10,
+      "EmployeeNumber": "40077",
+      "Name": "Ernesto Alonso Reyes",
+      "Email": "ernesto.reyes@planta.mx",
+      "Role": 3,
+      "IsActive": false
+    }
+  ],
+  "Plants": [
+    {
+      "Id": 1,
+      "Code": "PT1",
+      "Name": "Planta Monterrey",
+      "IsActive": true
+    },
+    {
+      "Id": 2,
+      "Code": "PT2",
+      "Name": "Planta Quer\u00E9taro",
+      "IsActive": true
+    },
+    {
+      "Id": 3,
+      "Code": "PT3",
+      "Name": "Planta Tijuana",
+      "IsActive": true
+    }
+  ],
+  "Areas": [
+    {
+      "Id": 1,
+      "Code": "MECA",
+      "Name": "Mecanizado",
+      "PlantId": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 2,
+      "Code": "ENS1",
+      "Name": "Ensamble Automotriz",
+      "PlantId": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 3,
+      "Code": "PINT",
+      "Name": "Pintura",
+      "PlantId": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 4,
+      "Code": "MANT",
+      "Name": "Mantenimiento",
+      "PlantId": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 5,
+      "Code": "INYE",
+      "Name": "Inyecci\u00F3n de Pl\u00E1sticos",
+      "PlantId": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 6,
+      "Code": "ENS2",
+      "Name": "Ensamble Electr\u00F3nico",
+      "PlantId": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 7,
+      "Code": "CALI",
+      "Name": "Calidad",
+      "PlantId": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 8,
+      "Code": "EMBA",
+      "Name": "Empaque",
+      "PlantId": 3,
+      "IsActive": true
+    },
+    {
+      "Id": 9,
+      "Code": "HERR",
+      "Name": "Herramentales",
+      "PlantId": 3,
+      "IsActive": true
+    },
+    {
+      "Id": 10,
+      "Code": "ALMA",
+      "Name": "Almac\u00E9n",
+      "PlantId": 3,
+      "IsActive": true
+    }
+  ],
+  "Machines": [
+    {
+      "Id": 1,
+      "Code": "CNC-01",
+      "Name": "Centro de mecanizado CNC 1",
+      "AreaId": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 2,
+      "Code": "CNC-02",
+      "Name": "Centro de mecanizado CNC 2",
+      "AreaId": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 3,
+      "Code": "TOR-01",
+      "Name": "Torno CNC horizontal",
+      "AreaId": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 4,
+      "Code": "FRE-01",
+      "Name": "Fresadora vertical",
+      "AreaId": 1,
+      "IsActive": true
+    },
+    {
+      "Id": 5,
+      "Code": "LIN-ENS-1",
+      "Name": "L\u00EDnea de ensamble 1",
+      "AreaId": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 6,
+      "Code": "LIN-ENS-2",
+      "Name": "L\u00EDnea de ensamble 2",
+      "AreaId": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 7,
+      "Code": "PRE-200T",
+      "Name": "Prensa hidr\u00E1ulica 200 T",
+      "AreaId": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 8,
+      "Code": "SOL-MIG-1",
+      "Name": "Celda de soldadura MIG 1",
+      "AreaId": 2,
+      "IsActive": true
+    },
+    {
+      "Id": 9,
+      "Code": "PIN-CAB-1",
+      "Name": "Cabina de pintura 1",
+      "AreaId": 3,
+      "IsActive": true
+    },
+    {
+      "Id": 10,
+      "Code": "HOR-CUR-1",
+      "Name": "Horno de curado",
+      "AreaId": 3,
+      "IsActive": true
+    },
+    {
+      "Id": 11,
+      "Code": "MANT-TAL-1",
+      "Name": "Taller de mantenimiento",
+      "AreaId": 4,
+      "IsActive": true
+    },
+    {
+      "Id": 12,
+      "Code": "INY-03",
+      "Name": "Inyectora 350 toneladas",
+      "AreaId": 5,
+      "IsActive": true
+    },
+    {
+      "Id": 13,
+      "Code": "INY-04",
+      "Name": "Inyectora 120 toneladas",
+      "AreaId": 5,
+      "IsActive": true
+    },
+    {
+      "Id": 14,
+      "Code": "SMT-LIN-1",
+      "Name": "L\u00EDnea SMT electr\u00F3nica",
+      "AreaId": 6,
+      "IsActive": true
+    },
+    {
+      "Id": 15,
+      "Code": "BAN-PRU-1",
+      "Name": "Banco de pruebas el\u00E9ctricas",
+      "AreaId": 6,
+      "IsActive": true
+    },
+    {
+      "Id": 16,
+      "Code": "MET-MIC-1",
+      "Name": "Laboratorio metrolog\u00EDa",
+      "AreaId": 7,
+      "IsActive": true
+    },
+    {
+      "Id": 17,
+      "Code": "EMP-AUT-1",
+      "Name": "Empacadora autom\u00E1tica",
+      "AreaId": 8,
+      "IsActive": true
+    },
+    {
+      "Id": 18,
+      "Code": "AJE-MAN-2",
+      "Name": "Estaci\u00F3n de ajuste manual",
+      "AreaId": 9,
+      "IsActive": true
+    },
+    {
+      "Id": 19,
+      "Code": "EDM-HIL-1",
+      "Name": "Alimentador de hilo EDM",
+      "AreaId": 9,
+      "IsActive": true
+    },
+    {
+      "Id": 20,
+      "Code": "MON-PAT-1",
+      "Name": "Montacargas de patios",
+      "AreaId": 10,
+      "IsActive": true
+    }
+  ],
+  "Parts": [
+    {
+      "Id": 1,
+      "PartNumber": "MAT-10001",
+      "Description": "Tornillo hexagonal M8 x 40 mm",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-01-02",
+      "IsActive": true
+    },
+    {
+      "Id": 2,
+      "PartNumber": "MAT-10002",
+      "Description": "Sensor fotoel\u00E9ctrico difuso 24 VDC",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-04-01",
+      "IsActive": true
+    },
+    {
+      "Id": 3,
+      "PartNumber": "MAT-10003",
+      "Description": "Cable el\u00E9ctrico flexible 2 m calibre 14",
+      "UnitOfMeasure": "M",
+      "DefaultLocation": "C-02-04",
+      "IsActive": true
+    },
+    {
+      "Id": 4,
+      "PartNumber": "MAT-10004",
+      "Description": "Rodamiento de bolas 6204 ZZ",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-05-01",
+      "IsActive": true
+    },
+    {
+      "Id": 5,
+      "PartNumber": "MAT-10005",
+      "Description": "Banda transportadora PU 3 mm",
+      "UnitOfMeasure": "M",
+      "DefaultLocation": "D-01-03",
+      "IsActive": true
+    },
+    {
+      "Id": 6,
+      "PartNumber": "MAT-10006",
+      "Description": "Fusible tipo NH 32 A",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-02-02",
+      "IsActive": true
+    },
+    {
+      "Id": 7,
+      "PartNumber": "MAT-10007",
+      "Description": "V\u00E1lvula neum\u00E1tica 5/2 con solenoide",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-06-03",
+      "IsActive": true
+    },
+    {
+      "Id": 8,
+      "PartNumber": "MAT-10008",
+      "Description": "Motor el\u00E9ctrico 2 HP 3 fases",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "D-04-01",
+      "IsActive": true
+    },
+    {
+      "Id": 9,
+      "PartNumber": "MAT-10009",
+      "Description": "Sello hidr\u00E1ulico 35x47x7",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-08-04",
+      "IsActive": true
+    },
+    {
+      "Id": 10,
+      "PartNumber": "MAT-10010",
+      "Description": "Aceite hidr\u00E1ulico ISO 68",
+      "UnitOfMeasure": "L",
+      "DefaultLocation": "E-01-01",
+      "IsActive": true
+    },
+    {
+      "Id": 11,
+      "PartNumber": "MAT-10011",
+      "Description": "Guantes de nitrilo talla L",
+      "UnitOfMeasure": "CJA",
+      "DefaultLocation": "F-03-02",
+      "IsActive": true
+    },
+    {
+      "Id": 12,
+      "PartNumber": "MAT-10012",
+      "Description": "Disco de corte 4 1/2 pulgadas",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "G-02-01",
+      "IsActive": true
+    },
+    {
+      "Id": 13,
+      "PartNumber": "MAT-10013",
+      "Description": "Broca helicoidal para metal 10 mm",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "G-01-05",
+      "IsActive": true
+    },
+    {
+      "Id": 14,
+      "PartNumber": "MAT-10014",
+      "Description": "Contactor tripolar 40 A",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-01-04",
+      "IsActive": true
+    },
+    {
+      "Id": 15,
+      "PartNumber": "MAT-10015",
+      "Description": "Manguera hidr\u00E1ulica R2 1/2 pulgada",
+      "UnitOfMeasure": "M",
+      "DefaultLocation": "C-05-02",
+      "IsActive": true
+    },
+    {
+      "Id": 16,
+      "PartNumber": "MAT-10016",
+      "Description": "Tuerca hexagonal M10 zincada",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-01-04",
+      "IsActive": true
+    },
+    {
+      "Id": 17,
+      "PartNumber": "MAT-10017",
+      "Description": "Rondana plana 3/8 acero inoxidable",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-01-05",
+      "IsActive": true
+    },
+    {
+      "Id": 18,
+      "PartNumber": "MAT-10018",
+      "Description": "Termopar tipo J 150 mm",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-07-02",
+      "IsActive": true
+    },
+    {
+      "Id": 19,
+      "PartNumber": "MAT-10019",
+      "Description": "Variador de frecuencia 5 HP",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "D-06-01",
+      "IsActive": true
+    },
+    {
+      "Id": 20,
+      "PartNumber": "MAT-10020",
+      "Description": "Lubricante multiusos en aerosol",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "E-02-03",
+      "IsActive": true
+    },
+    {
+      "Id": 21,
+      "PartNumber": "MAT-10021",
+      "Description": "Trapo industrial absorbente",
+      "UnitOfMeasure": "KG",
+      "DefaultLocation": "E-03-01",
+      "IsActive": true
+    },
+    {
+      "Id": 22,
+      "PartNumber": "MAT-10022",
+      "Description": "Cinta aislante vin\u00EDlica 19 mm",
+      "UnitOfMeasure": "RLL",
+      "DefaultLocation": "B-03-01",
+      "IsActive": true
+    },
+    {
+      "Id": 23,
+      "PartNumber": "MAT-10023",
+      "Description": "Premoldado para banda transportadora",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "D-01-05",
+      "IsActive": true
+    },
+    {
+      "Id": 24,
+      "PartNumber": "MAT-10024",
+      "Description": "Balero de agujas HK2020",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-05-03",
+      "IsActive": true
+    },
+    {
+      "Id": 25,
+      "PartNumber": "MAT-10025",
+      "Description": "Filtro de aire para cabina de pintura",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "H-02-02",
+      "IsActive": true
+    },
+    {
+      "Id": 26,
+      "PartNumber": "MAT-10026",
+      "Description": "Electrodo E6013 1/8 pulgada",
+      "UnitOfMeasure": "KG",
+      "DefaultLocation": "G-03-02",
+      "IsActive": true
+    },
+    {
+      "Id": 27,
+      "PartNumber": "MAT-10027",
+      "Description": "Soluci\u00F3n desengrasante industrial",
+      "UnitOfMeasure": "L",
+      "DefaultLocation": "E-02-05",
+      "IsActive": true
+    },
+    {
+      "Id": 28,
+      "PartNumber": "MAT-10028",
+      "Description": "Cadena de rodillos No. 40",
+      "UnitOfMeasure": "M",
+      "DefaultLocation": "A-06-02",
+      "IsActive": true
+    },
+    {
+      "Id": 29,
+      "PartNumber": "MAT-10029",
+      "Description": "Pi\u00F1\u00F3n para cadena No. 40 z=18",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-06-03",
+      "IsActive": true
+    },
+    {
+      "Id": 30,
+      "PartNumber": "MAT-10030",
+      "Description": "Interruptor de l\u00EDmite IP67",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-05-01",
+      "IsActive": true
+    },
+    {
+      "Id": 31,
+      "PartNumber": "MAT-10031",
+      "Description": "Fuente de alimentaci\u00F3n 24 VDC 10 A",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "D-05-02",
+      "IsActive": true
+    },
+    {
+      "Id": 32,
+      "PartNumber": "MAT-10032",
+      "Description": "Malla abrasiva para orbital",
+      "UnitOfMeasure": "CJA",
+      "DefaultLocation": "G-04-01",
+      "IsActive": true
+    },
+    {
+      "Id": 33,
+      "PartNumber": "MAT-10033",
+      "Description": "Sello mec\u00E1nico para bomba 1 pulgada",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-08-02",
+      "IsActive": true
+    },
+    {
+      "Id": 34,
+      "PartNumber": "MAT-10034",
+      "Description": "Grasa EP litio grado 2",
+      "UnitOfMeasure": "KG",
+      "DefaultLocation": "E-01-03",
+      "IsActive": true
+    },
+    {
+      "Id": 35,
+      "PartNumber": "MAT-10035",
+      "Description": "Tornillo prisionero M6 x 20",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "A-02-01",
+      "IsActive": true
+    },
+    {
+      "Id": 36,
+      "PartNumber": "MAT-10036",
+      "Description": "Relevador t\u00E9rmico 9-13 A",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-01-06",
+      "IsActive": true
+    },
+    {
+      "Id": 37,
+      "PartNumber": "MAT-10037",
+      "Description": "Cinta adhesiva de empaque 48 mm",
+      "UnitOfMeasure": "RLL",
+      "DefaultLocation": "F-01-02",
+      "IsActive": true
+    },
+    {
+      "Id": 38,
+      "PartNumber": "MAT-10038",
+      "Description": "Caja de cart\u00F3n corrugado 40x30x25",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "F-01-01",
+      "IsActive": true
+    },
+    {
+      "Id": 39,
+      "PartNumber": "MAT-10039",
+      "Description": "Etiqueta adhesiva de embarque",
+      "UnitOfMeasure": "RLL",
+      "DefaultLocation": "F-01-04",
+      "IsActive": true
+    },
+    {
+      "Id": 40,
+      "PartNumber": "MAT-10040",
+      "Description": "Pel\u00EDcula estirable 500 mm",
+      "UnitOfMeasure": "RLL",
+      "DefaultLocation": "F-02-01",
+      "IsActive": true
+    },
+    {
+      "Id": 41,
+      "PartNumber": "MAT-10041",
+      "Description": "Man\u00F3metro glycerinado 0-160 psi",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-08-01",
+      "IsActive": true
+    },
+    {
+      "Id": 42,
+      "PartNumber": "MAT-10042",
+      "Description": "Manguera neum\u00E1tica 8 mm",
+      "UnitOfMeasure": "M",
+      "DefaultLocation": "C-03-03",
+      "IsActive": true
+    },
+    {
+      "Id": 43,
+      "PartNumber": "MAT-10043",
+      "Description": "Acople r\u00E1pido neum\u00E1tico 1/4",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "B-06-05",
+      "IsActive": true
+    },
+    {
+      "Id": 44,
+      "PartNumber": "MAT-10044",
+      "Description": "Vidrio de visi\u00F3n para horno",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "H-01-03",
+      "IsActive": true
+    },
+    {
+      "Id": 45,
+      "PartNumber": "MAT-10045",
+      "Description": "Resistencia el\u00E9ctrica tubular 2 kW",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "D-07-02",
+      "IsActive": true
+    },
+    {
+      "Id": 46,
+      "PartNumber": "MAT-10046",
+      "Description": "Rodillo de acero para transportador",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "D-02-02",
+      "IsActive": true
+    },
+    {
+      "Id": 47,
+      "PartNumber": "MAT-10047",
+      "Description": "Pistola de aire para limpieza",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "G-05-01",
+      "IsActive": true
+    },
+    {
+      "Id": 48,
+      "PartNumber": "MAT-10048",
+      "Description": "Llave allen juego m\u00E9trico 9 pzas",
+      "UnitOfMeasure": "CJA",
+      "DefaultLocation": "G-05-03",
+      "IsActive": true
+    },
+    {
+      "Id": 49,
+      "PartNumber": "MAT-10049",
+      "Description": "Taladro port\u00E1til 1/2 pulgada",
+      "UnitOfMeasure": "PZA",
+      "DefaultLocation": "G-06-01",
+      "IsActive": true
+    },
+    {
+      "Id": 50,
+      "PartNumber": "MAT-10050",
+      "Description": "Aceite para cadena de sierra",
+      "UnitOfMeasure": "L",
+      "DefaultLocation": "E-01-05",
+      "IsActive": true
+    }
+  ],
+  "PartLocations": [
+    {
+      "Id": 1,
+      "PartId": 1,
+      "LocationCode": "B-01-02",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 2,
+      "PartId": 6,
+      "LocationCode": "A-02-02",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 3,
+      "PartId": 11,
+      "LocationCode": "A-03-02",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 4,
+      "PartId": 16,
+      "LocationCode": "B-01-04",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 5,
+      "PartId": 21,
+      "LocationCode": "A-03-01",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 6,
+      "PartId": 26,
+      "LocationCode": "A-03-02",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 7,
+      "PartId": 31,
+      "LocationCode": "A-05-02",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 8,
+      "PartId": 36,
+      "LocationCode": "A-01-06",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 9,
+      "PartId": 41,
+      "LocationCode": "A-08-01",
+      "Description": "Ubicaci\u00F3n alternativa"
+    },
+    {
+      "Id": 10,
+      "PartId": 46,
+      "LocationCode": "A-02-02",
+      "Description": "Ubicaci\u00F3n alternativa"
+    }
+  ],
+  "ShortageReasons": [
+    {
+      "Id": 1,
+      "Code": "OUT_OF_STOCK",
+      "Description": "Sin existencia",
+      "RequiresComment": false,
+      "IsActive": true
+    },
+    {
+      "Id": 2,
+      "Code": "INSUFFICIENT_INVENTORY",
+      "Description": "Inventario insuficiente",
+      "RequiresComment": false,
+      "IsActive": true
+    },
+    {
+      "Id": 3,
+      "Code": "DAMAGED_MATERIAL",
+      "Description": "Material da\u00F1ado",
+      "RequiresComment": false,
+      "IsActive": true
+    },
+    {
+      "Id": 4,
+      "Code": "MATERIAL_NOT_FOUND",
+      "Description": "Material no encontrado",
+      "RequiresComment": false,
+      "IsActive": true
+    },
+    {
+      "Id": 5,
+      "Code": "DIFFERENT_LOCATION",
+      "Description": "Material en otra ubicaci\u00F3n",
+      "RequiresComment": false,
+      "IsActive": true
+    },
+    {
+      "Id": 6,
+      "Code": "RESERVED_MATERIAL",
+      "Description": "Material reservado",
+      "RequiresComment": false,
+      "IsActive": true
+    },
+    {
+      "Id": 7,
+      "Code": "QUALITY_ISSUE",
+      "Description": "Problema de calidad",
+      "RequiresComment": false,
+      "IsActive": true
+    },
+    {
+      "Id": 8,
+      "Code": "OTHER",
+      "Description": "Otro",
+      "RequiresComment": true,
+      "IsActive": true
+    }
+  ],
+  "Requisitions": [
+    {
+      "Id": 1,
+      "RequisitionNumber": "REQ-20260824-0001",
+      "CreatedAt": "2026-08-23T08:07:00-06:00",
+      "RequestedDate": "2026-08-23T00:00:00-06:00",
+      "RequesterId": 1,
+      "RequesterName": "Laura M\u00E9ndez R\u00EDos",
+      "EmployeeNumber": "10021",
+      "PlantId": 1,
+      "AreaId": 1,
+      "MachineId": 1,
+      "Status": 0,
+      "CreatedBy": "Laura M\u00E9ndez R\u00EDos",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 1,
+          "PartId": 1,
+          "PartNumber": "MAT-10001",
+          "Description": "Tornillo hexagonal M8 x 40 mm",
+          "RequestedQuantity": 10,
+          "UnitOfMeasure": "PZA",
+          "Location": "A-01-02",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 10,
+          "FulfillmentStatus": 3,
+          "Reviewed": false
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 1,
+          "PartId": 2,
+          "PartNumber": "MAT-10002",
+          "Description": "Sensor fotoel\u00E9ctrico difuso 24 VDC",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "PZA",
+          "Location": "B-04-01",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 2,
+          "FulfillmentStatus": 3,
+          "Reviewed": false
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 1,
+          "PartId": 3,
+          "PartNumber": "MAT-10003",
+          "Description": "Cable el\u00E9ctrico flexible 2 m calibre 14",
+          "RequestedQuantity": 8,
+          "UnitOfMeasure": "M",
+          "Location": "C-02-04",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 8,
+          "FulfillmentStatus": 3,
+          "Reviewed": false
+        },
+        {
+          "Id": 4,
+          "RequisitionId": 1,
+          "PartId": 11,
+          "PartNumber": "MAT-10011",
+          "Description": "Guantes de nitrilo talla L",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "CJA",
+          "Location": "F-03-02",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 2,
+          "FulfillmentStatus": 3,
+          "Reviewed": false
+        }
+      ],
+      "IsCompleted": false
+    },
+    {
+      "Id": 2,
+      "RequisitionNumber": "REQ-20260824-0002",
+      "CreatedAt": "2026-08-24T08:14:00-06:00",
+      "RequestedDate": "2026-08-24T00:00:00-06:00",
+      "RequesterId": 2,
+      "RequesterName": "Jorge Ram\u00EDrez Castillo",
+      "EmployeeNumber": "10088",
+      "PlantId": 1,
+      "AreaId": 2,
+      "MachineId": 7,
+      "Status": 3,
+      "CreatedBy": "Jorge Ram\u00EDrez Castillo",
+      "StartedAt": "2026-08-24T18:42:47.25829-06:00",
+      "ClosedAt": "2026-08-24T18:43:45.767105-06:00",
+      "ClosedBy": "Mar\u00EDa Fernanda L\u00F3pez",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 2,
+          "PartId": 8,
+          "PartNumber": "MAT-10008",
+          "Description": "Motor el\u00E9ctrico 2 HP 3 fases",
+          "RequestedQuantity": 1,
+          "UnitOfMeasure": "PZA",
+          "Location": "D-04-01",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 1,
+          "FulfillmentStatus": 3,
+          "ShortageReasonId": 6,
+          "ShortageReasonDescription": "Material reservado",
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-24T18:43:42.320098-06:00"
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 2,
+          "PartId": 15,
+          "PartNumber": "MAT-10015",
+          "Description": "Manguera hidr\u00E1ulica R2 1/2 pulgada",
+          "RequestedQuantity": 4,
+          "UnitOfMeasure": "M",
+          "Location": "C-05-02",
+          "FulfilledQuantity": 4,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-24T18:43:18.177983-06:00"
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 2,
+          "PartId": 33,
+          "PartNumber": "MAT-10033",
+          "Description": "Sello mec\u00E1nico para bomba 1 pulgada",
+          "RequestedQuantity": 1,
+          "UnitOfMeasure": "PZA",
+          "Location": "A-08-02",
+          "FulfilledQuantity": 1,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-24T18:43:24.690775-06:00"
+        }
+      ],
+      "IsCompleted": true
+    },
+    {
+      "Id": 3,
+      "RequisitionNumber": "REQ-20260823-0001",
+      "CreatedAt": "2026-08-22T08:21:00-06:00",
+      "RequestedDate": "2026-08-22T00:00:00-06:00",
+      "RequesterId": 3,
+      "RequesterName": "Ana Sof\u00EDa Herrera",
+      "EmployeeNumber": "10145",
+      "PlantId": 2,
+      "AreaId": 5,
+      "MachineId": 12,
+      "Status": 1,
+      "CreatedBy": "Ana Sof\u00EDa Herrera",
+      "StartedAt": "2026-08-23T00:00:00-06:00",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 3,
+          "PartId": 42,
+          "PartNumber": "MAT-10042",
+          "Description": "Manguera neum\u00E1tica 8 mm",
+          "RequestedQuantity": 12,
+          "UnitOfMeasure": "M",
+          "Location": "C-03-03",
+          "FulfilledQuantity": 12,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 3,
+          "PartId": 43,
+          "PartNumber": "MAT-10043",
+          "Description": "Acople r\u00E1pido neum\u00E1tico 1/4",
+          "RequestedQuantity": 6,
+          "UnitOfMeasure": "PZA",
+          "Location": "B-06-05",
+          "FulfilledQuantity": 4,
+          "ShortageQuantity": 2,
+          "FulfillmentStatus": 2,
+          "ShortageReasonId": 1,
+          "ShortageReasonDescription": "Sin existencia",
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 3,
+          "PartId": 27,
+          "PartNumber": "MAT-10027",
+          "Description": "Soluci\u00F3n desengrasante industrial",
+          "RequestedQuantity": 5,
+          "UnitOfMeasure": "L",
+          "Location": "E-02-05",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 5,
+          "FulfillmentStatus": 3,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        },
+        {
+          "Id": 4,
+          "RequisitionId": 3,
+          "PartId": 34,
+          "PartNumber": "MAT-10034",
+          "Description": "Grasa EP litio grado 2",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "KG",
+          "Location": "E-01-03",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 2,
+          "FulfillmentStatus": 3,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        }
+      ],
+      "IsCompleted": false
+    },
+    {
+      "Id": 4,
+      "RequisitionNumber": "REQ-20260823-0002",
+      "CreatedAt": "2026-08-21T08:28:00-06:00",
+      "RequestedDate": "2026-08-21T00:00:00-06:00",
+      "RequesterId": 4,
+      "RequesterName": "Miguel \u00C1ngel Torres",
+      "EmployeeNumber": "10233",
+      "PlantId": 1,
+      "AreaId": 1,
+      "MachineId": 2,
+      "Status": 1,
+      "CreatedBy": "Miguel \u00C1ngel Torres",
+      "StartedAt": "2026-08-23T00:00:00-06:00",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 4,
+          "PartId": 13,
+          "PartNumber": "MAT-10013",
+          "Description": "Broca helicoidal para metal 10 mm",
+          "RequestedQuantity": 5,
+          "UnitOfMeasure": "PZA",
+          "Location": "G-01-05",
+          "FulfilledQuantity": 5,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 4,
+          "PartId": 26,
+          "PartNumber": "MAT-10026",
+          "Description": "Electrodo E6013 1/8 pulgada",
+          "RequestedQuantity": 3,
+          "UnitOfMeasure": "KG",
+          "Location": "G-03-02",
+          "FulfilledQuantity": 3,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 4,
+          "PartId": 28,
+          "PartNumber": "MAT-10028",
+          "Description": "Cadena de rodillos No. 40",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "M",
+          "Location": "A-06-02",
+          "FulfilledQuantity": 2,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        },
+        {
+          "Id": 4,
+          "RequisitionId": 4,
+          "PartId": 49,
+          "PartNumber": "MAT-10049",
+          "Description": "Taladro port\u00E1til 1/2 pulgada",
+          "RequestedQuantity": 1,
+          "UnitOfMeasure": "PZA",
+          "Location": "G-06-01",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 1,
+          "FulfillmentStatus": 3,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        },
+        {
+          "Id": 5,
+          "RequisitionId": 4,
+          "PartId": 21,
+          "PartNumber": "MAT-10021",
+          "Description": "Trapo industrial absorbente",
+          "RequestedQuantity": 4,
+          "UnitOfMeasure": "KG",
+          "Location": "E-03-01",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 4,
+          "FulfillmentStatus": 3,
+          "Reviewed": true,
+          "ReviewedAt": "2026-08-23T00:30:00-06:00"
+        }
+      ],
+      "IsCompleted": false
+    },
+    {
+      "Id": 5,
+      "RequisitionNumber": "REQ-20260822-0001",
+      "CreatedAt": "2026-08-22T08:35:00-06:00",
+      "RequestedDate": "2026-08-22T00:00:00-06:00",
+      "RequesterId": 1,
+      "RequesterName": "Laura M\u00E9ndez R\u00EDos",
+      "EmployeeNumber": "10021",
+      "PlantId": 1,
+      "AreaId": 1,
+      "MachineId": 3,
+      "Status": 2,
+      "CreatedBy": "Laura M\u00E9ndez R\u00EDos",
+      "StartedAt": "2026-08-22T09:00:00-06:00",
+      "ClosedAt": "2026-08-22T17:00:00-06:00",
+      "ClosedBy": "Mar\u00EDa Fernanda L\u00F3pez",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 5,
+          "PartId": 4,
+          "PartNumber": "MAT-10004",
+          "Description": "Rodamiento de bolas 6204 ZZ",
+          "RequestedQuantity": 6,
+          "UnitOfMeasure": "PZA",
+          "Location": "A-05-01",
+          "FulfilledQuantity": 6,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 5,
+          "PartId": 29,
+          "PartNumber": "MAT-10029",
+          "Description": "Pi\u00F1\u00F3n para cadena No. 40 z=18",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "PZA",
+          "Location": "A-06-03",
+          "FulfilledQuantity": 2,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 5,
+          "PartId": 31,
+          "PartNumber": "MAT-10031",
+          "Description": "Fuente de alimentaci\u00F3n 24 VDC 10 A",
+          "RequestedQuantity": 1,
+          "UnitOfMeasure": "PZA",
+          "Location": "D-05-02",
+          "FulfilledQuantity": 1,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 4,
+          "RequisitionId": 5,
+          "PartId": 16,
+          "PartNumber": "MAT-10016",
+          "Description": "Tuerca hexagonal M10 zincada",
+          "RequestedQuantity": 20,
+          "UnitOfMeasure": "PZA",
+          "Location": "A-01-04",
+          "FulfilledQuantity": 20,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        }
+      ],
+      "IsCompleted": true
+    },
+    {
+      "Id": 6,
+      "RequisitionNumber": "REQ-20260821-0001",
+      "CreatedAt": "2026-08-21T08:42:00-06:00",
+      "RequestedDate": "2026-08-21T00:00:00-06:00",
+      "RequesterId": 2,
+      "RequesterName": "Jorge Ram\u00EDrez Castillo",
+      "EmployeeNumber": "10088",
+      "PlantId": 1,
+      "AreaId": 2,
+      "MachineId": 8,
+      "Status": 2,
+      "CreatedBy": "Jorge Ram\u00EDrez Castillo",
+      "StartedAt": "2026-08-21T09:00:00-06:00",
+      "ClosedAt": "2026-08-21T15:00:00-06:00",
+      "ClosedBy": "Carlos S\u00E1nchez Vega",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 6,
+          "PartId": 25,
+          "PartNumber": "MAT-10025",
+          "Description": "Filtro de aire para cabina de pintura",
+          "RequestedQuantity": 4,
+          "UnitOfMeasure": "PZA",
+          "Location": "H-02-02",
+          "FulfilledQuantity": 4,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 6,
+          "PartId": 12,
+          "PartNumber": "MAT-10012",
+          "Description": "Disco de corte 4 1/2 pulgadas",
+          "RequestedQuantity": 10,
+          "UnitOfMeasure": "PZA",
+          "Location": "G-02-01",
+          "FulfilledQuantity": 10,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 6,
+          "PartId": 22,
+          "PartNumber": "MAT-10022",
+          "Description": "Cinta aislante vin\u00EDlica 19 mm",
+          "RequestedQuantity": 3,
+          "UnitOfMeasure": "RLL",
+          "Location": "B-03-01",
+          "FulfilledQuantity": 3,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        }
+      ],
+      "IsCompleted": true
+    },
+    {
+      "Id": 7,
+      "RequisitionNumber": "REQ-20260823-0003",
+      "CreatedAt": "2026-08-23T08:49:00-06:00",
+      "RequestedDate": "2026-08-23T00:00:00-06:00",
+      "RequesterId": 3,
+      "RequesterName": "Ana Sof\u00EDa Herrera",
+      "EmployeeNumber": "10145",
+      "PlantId": 2,
+      "AreaId": 6,
+      "MachineId": 14,
+      "Status": 3,
+      "CreatedBy": "Ana Sof\u00EDa Herrera",
+      "StartedAt": "2026-08-23T09:00:00-06:00",
+      "ClosedAt": "2026-08-24T11:00:00-06:00",
+      "ClosedBy": "Mar\u00EDa Fernanda L\u00F3pez",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 7,
+          "PartId": 5,
+          "PartNumber": "MAT-10005",
+          "Description": "Banda transportadora PU 3 mm",
+          "RequestedQuantity": 8,
+          "UnitOfMeasure": "M",
+          "Location": "D-01-03",
+          "FulfilledQuantity": 8,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 7,
+          "PartId": 23,
+          "PartNumber": "MAT-10023",
+          "Description": "Premoldado para banda transportadora",
+          "RequestedQuantity": 4,
+          "UnitOfMeasure": "PZA",
+          "Location": "D-01-05",
+          "FulfilledQuantity": 2,
+          "ShortageQuantity": 2,
+          "FulfillmentStatus": 2,
+          "ShortageReasonId": 2,
+          "ShortageReasonDescription": "Inventario insuficiente",
+          "Reviewed": true
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 7,
+          "PartId": 46,
+          "PartNumber": "MAT-10046",
+          "Description": "Rodillo de acero para transportador",
+          "RequestedQuantity": 6,
+          "UnitOfMeasure": "PZA",
+          "Location": "D-02-02",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 6,
+          "FulfillmentStatus": 3,
+          "ShortageReasonId": 3,
+          "ShortageReasonDescription": "Material da\u00F1ado",
+          "ShortageComment": "Se encontraron con \u00F3xido en el rack B-04",
+          "Reviewed": true
+        },
+        {
+          "Id": 4,
+          "RequisitionId": 7,
+          "PartId": 38,
+          "PartNumber": "MAT-10038",
+          "Description": "Caja de cart\u00F3n corrugado 40x30x25",
+          "RequestedQuantity": 50,
+          "UnitOfMeasure": "PZA",
+          "Location": "F-01-01",
+          "FulfilledQuantity": 50,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 5,
+          "RequisitionId": 7,
+          "PartId": 40,
+          "PartNumber": "MAT-10040",
+          "Description": "Pel\u00EDcula estirable 500 mm",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "RLL",
+          "Location": "F-02-01",
+          "FulfilledQuantity": 2,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        }
+      ],
+      "IsCompleted": true
+    },
+    {
+      "Id": 8,
+      "RequisitionNumber": "REQ-20260820-0001",
+      "CreatedAt": "2026-08-20T08:56:00-06:00",
+      "RequestedDate": "2026-08-20T00:00:00-06:00",
+      "RequesterId": 4,
+      "RequesterName": "Miguel \u00C1ngel Torres",
+      "EmployeeNumber": "10233",
+      "PlantId": 3,
+      "AreaId": 8,
+      "MachineId": 17,
+      "Status": 3,
+      "CreatedBy": "Miguel \u00C1ngel Torres",
+      "StartedAt": "2026-08-20T09:00:00-06:00",
+      "ClosedAt": "2026-08-20T16:00:00-06:00",
+      "ClosedBy": "Carlos S\u00E1nchez Vega",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 8,
+          "PartId": 37,
+          "PartNumber": "MAT-10037",
+          "Description": "Cinta adhesiva de empaque 48 mm",
+          "RequestedQuantity": 6,
+          "UnitOfMeasure": "RLL",
+          "Location": "F-01-02",
+          "FulfilledQuantity": 6,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 8,
+          "PartId": 39,
+          "PartNumber": "MAT-10039",
+          "Description": "Etiqueta adhesiva de embarque",
+          "RequestedQuantity": 3,
+          "UnitOfMeasure": "RLL",
+          "Location": "F-01-04",
+          "FulfilledQuantity": 1,
+          "ShortageQuantity": 2,
+          "FulfillmentStatus": 2,
+          "ShortageReasonId": 4,
+          "ShortageReasonDescription": "Material no encontrado",
+          "Reviewed": true
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 8,
+          "PartId": 41,
+          "PartNumber": "MAT-10041",
+          "Description": "Man\u00F3metro glycerinado 0-160 psi",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "PZA",
+          "Location": "B-08-01",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 2,
+          "FulfillmentStatus": 3,
+          "ShortageReasonId": 8,
+          "ShortageReasonDescription": "Otro",
+          "ShortageComment": "El proveedor retras\u00F3 la entrega, llega el viernes",
+          "Reviewed": true
+        }
+      ],
+      "IsCompleted": true
+    },
+    {
+      "Id": 9,
+      "RequisitionNumber": "REQ-20260817-0001",
+      "CreatedAt": "2026-08-17T09:03:00-06:00",
+      "RequestedDate": "2026-08-17T00:00:00-06:00",
+      "RequesterId": 1,
+      "RequesterName": "Laura M\u00E9ndez R\u00EDos",
+      "EmployeeNumber": "10021",
+      "PlantId": 1,
+      "AreaId": 4,
+      "MachineId": 11,
+      "Status": 4,
+      "CreatedBy": "Laura M\u00E9ndez R\u00EDos",
+      "StartedAt": "2026-08-17T09:00:00-06:00",
+      "ClosedAt": "2026-08-18T10:00:00-06:00",
+      "ClosedBy": "Mar\u00EDa Fernanda L\u00F3pez",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 9,
+          "PartId": 47,
+          "PartNumber": "MAT-10047",
+          "Description": "Pistola de aire para limpieza",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "PZA",
+          "Location": "G-05-01",
+          "FulfilledQuantity": 2,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 9,
+          "PartId": 44,
+          "PartNumber": "MAT-10044",
+          "Description": "Vidrio de visi\u00F3n para horno",
+          "RequestedQuantity": 1,
+          "UnitOfMeasure": "PZA",
+          "Location": "H-01-03",
+          "FulfilledQuantity": 1,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        },
+        {
+          "Id": 3,
+          "RequisitionId": 9,
+          "PartId": 45,
+          "PartNumber": "MAT-10045",
+          "Description": "Resistencia el\u00E9ctrica tubular 2 kW",
+          "RequestedQuantity": 3,
+          "UnitOfMeasure": "PZA",
+          "Location": "D-07-02",
+          "FulfilledQuantity": 3,
+          "ShortageQuantity": 0,
+          "FulfillmentStatus": 1,
+          "Reviewed": true
+        }
+      ],
+      "IsCompleted": true
+    },
+    {
+      "Id": 10,
+      "RequisitionNumber": "REQ-20260818-0001",
+      "CreatedAt": "2026-08-18T09:10:00-06:00",
+      "RequestedDate": "2026-08-18T00:00:00-06:00",
+      "RequesterId": 2,
+      "RequesterName": "Jorge Ram\u00EDrez Castillo",
+      "EmployeeNumber": "10088",
+      "PlantId": 2,
+      "AreaId": 7,
+      "MachineId": 16,
+      "Status": 5,
+      "CreatedBy": "Jorge Ram\u00EDrez Castillo",
+      "StartedAt": "2026-08-18T09:00:00-06:00",
+      "ClosedAt": "2026-08-18T13:00:00-06:00",
+      "ClosedBy": "Mar\u00EDa Fernanda L\u00F3pez",
+      "Items": [
+        {
+          "Id": 1,
+          "RequisitionId": 10,
+          "PartId": 30,
+          "PartNumber": "MAT-10030",
+          "Description": "Interruptor de l\u00EDmite IP67",
+          "RequestedQuantity": 2,
+          "UnitOfMeasure": "PZA",
+          "Location": "B-05-01",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 2,
+          "FulfillmentStatus": 3,
+          "Reviewed": true
+        },
+        {
+          "Id": 2,
+          "RequisitionId": 10,
+          "PartId": 36,
+          "PartNumber": "MAT-10036",
+          "Description": "Relevador t\u00E9rmico 9-13 A",
+          "RequestedQuantity": 4,
+          "UnitOfMeasure": "PZA",
+          "Location": "B-01-06",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 4,
+          "FulfillmentStatus": 3,
+          "Reviewed": true
+        }
+      ],
+      "IsCompleted": true
+    },
+    {
+      "Id": 11,
+      "RequisitionNumber": "REQ-20260824-0003",
+      "CreatedAt": "2026-08-24T18:44:41.593711-06:00",
+      "RequestedDate": "2026-08-24T00:00:00",
+      "RequesterId": 0,
+      "RequesterName": "luis",
+      "EmployeeNumber": "12313123",
+      "PlantId": 3,
+      "AreaId": 8,
+      "MachineId": 15,
+      "Status": 0,
+      "CreatedBy": "Mar\u00EDa Fernanda L\u00F3pez",
+      "Items": [
+        {
+          "Id": 0,
+          "RequisitionId": 11,
+          "PartId": 0,
+          "PartNumber": "PARTE2",
+          "Description": "-",
+          "RequestedQuantity": 122,
+          "QuantityDescription": "2 cajas",
+          "UnitOfMeasure": "-",
+          "Location": "-",
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 122,
+          "FulfillmentStatus": 0,
+          "Reviewed": false
+        }
+      ],
+      "IsCompleted": false
+    }
+  ]
+}

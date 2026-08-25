@@ -1,0 +1,23 @@
+@model List<Area>
+@{
+    var plants = (Dictionary<int, string>)ViewBag.PlantNames;
+}
+<table class="table req-table align-middle mb-0">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Planta</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var area in Model)
+        {
+            <tr>
+                <td data-label="Código"><span class="items-chip">@area.Code</span></td>
+                <td data-label="Nombre" class="fw-medium">@area.Name</td>
+                <td data-label="Planta">@(plants.GetValueOrDefault(area.PlantId, "-"))</td>
+            </tr>
+        }
+    </tbody>
+</table>

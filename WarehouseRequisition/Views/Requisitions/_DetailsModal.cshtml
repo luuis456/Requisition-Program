@@ -1,0 +1,96 @@
+@model RequisitionDetailsViewModel
+
+<div class="modal-header details-header">
+    <div>
+        <p class="text-uppercase small fw-semibold text-primary-custom mb-1">Detalles de la requisición</p>
+        <h5 class="modal-title mb-0">@Model.RequisitionNumber</h5>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+        <partial name="_StatusBadge" model="Model.Status" />
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+    </div>
+</div>
+
+<div class="modal-body">
+    <div class="row g-4">
+        <div class="col-lg-8 d-flex flex-column gap-4">
+            <section>
+                <h6 class="section-title"><i class="bi bi-info-circle me-2"></i>Información general</h6>
+                <dl class="details-grid mb-0">
+                    <div><dt>Número de requisición</dt><dd>@Model.RequisitionNumber</dd></div>
+                    <div><dt>Fecha</dt><dd>@Model.RequestedDate.ToString("dd/MM/yyyy")</dd></div>
+                    <div><dt>Requisitor</dt><dd>@Model.RequesterName</dd></div>
+                    <div><dt>Número de reloj</dt><dd>@Model.EmployeeNumber</dd></div>
+                    <div><dt>Área</dt><dd>@Model.AreaName</dd></div>
+                    <div><dt>Planta</dt><dd>@Model.PlantName</dd></div>
+                    <div><dt>Máquina</dt><dd>@Model.MachineName</dd></div>
+                    <div><dt>Estatus</dt><dd><partial name="_StatusBadge" model="Model.Status" /></dd></div>
+                </dl>
+                @if (!string.IsNullOrWhiteSpace(Model.Notes))
+                {
+                    <div class="alert alert-light border mt-3 mb-0 small">
+                        <i class="bi bi-sticky me-2 text-warning"></i><strong>Notas:</strong> @Model.Notes
+                    </div>
+                }
+            </section>
+
+            <section>
+                <h6 class="section-title"><i class="bi bi-box-seam me-2"></i>Materiales (@Model.Items.Count)</h6>
+                <div class="table-responsive border rounded-3">
+                    <table class="table table-sm items-table align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th>Número de parte</th>
+                                <th>Descripción</th>
+                                <th class="text-center">Cantidad solicitada</th>
+                                <th class="text-center">Cantidad surtida</th>
+                                <th>Ubicación</th>
+                                <th>Estatus</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <td class="fw-semibold">@item.PartNumber</td>
+                                    <td>@item.Description</td>
+                                    <td class="text-center">@item.RequestedQuantity @item.UnitOfMeasure</td>
+                                    <td class="text-center">@item.FulfilledQuantity @item.UnitOfMeasure</td>
+                                    <td><span class="location-chip"><i class="bi bi-geo-alt me-1"></i>@(string.IsNullOrWhiteSpace(item.Location) ? "-" : item.Location)</span></td>
+                                    <td><partial name="_FulfillmentStatusBadge" model="item.FulfillmentStatus" /></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="qr-panel">
+                <h6 class="section-title"><i class="bi bi-upc-scan me-2"></i>Escanear para surtir</h6>
+                <p class="small text-secondary">Apunta la cámara de tu teléfono al código QR para abrir la pantalla de surtido.</p>
+                <img class="qr-image mx-auto d-block" src="@Model.QrImageUrl"
+                     alt="Código QR de la requisición @Model.RequisitionNumber" width="260" height="260" />
+                <code class="d-block text-center small mt-2">@Model.FulfillmentUrl</code>
+                <div class="d-flex flex-column gap-2 mt-3">
+                    <a class="btn btn-outline-primary rounded-pill" href="@($"{Model.QrImageUrl}&download=true")">
+                        <i class="bi bi-download me-1"></i> Descargar QR
+                    </a>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-print-qr="@Model.RequisitionNumber">
+                        <i class="bi bi-printer me-1"></i> Imprimir QR
+                    </button>
+                    <a class="btn btn-success rounded-pill" asp-controller="Fulfillment" asp-action="Index"
+                       asp-route-requisitionNumber="@Model.RequisitionNumber" target="_blank">
+                        <i class="bi bi-phone me-1"></i> Abrir en pantalla de surtido
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer justify-content-between">
+    <span class="small text-secondary"><i class="bi bi-clock-history me-1"></i>Creada el @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span>
+    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+</div>

@@ -1,0 +1,145 @@
+@model FulfillmentViewModel
+
+<div class="fulfillment-page">
+    <a asp-controller="Requisitions" asp-action="Index" class="back-link">
+        <i class="bi bi-arrow-left me-1"></i> Volver a requisiciones
+    </a>
+
+    <section class="app-card fulfillment-header-card mb-3">
+        <div class="app-card-body pb-2">
+            <div class="d-flex justify-content-between align-items-start gap-2 flex-wrap">
+                <div>
+                    <p class="text-uppercase small fw-semibold text-secondary-custom mb-1">Requisición</p>
+                    <h4 class="fw-bold mb-1">@Model.RequisitionNumber</h4>
+                </div>
+                <partial name="_StatusBadge" model="Model.Status" />
+            </div>
+            <div class="chips-row mt-2">
+                <span class="info-chip"><i class="bi bi-diagram-3 me-1"></i>@Model.MachineName</span>
+                <span class="info-chip"><i class="bi bi-grid me-1"></i>@Model.AreaName</span>
+                <span class="info-chip"><i class="bi bi-building me-1"></i>@Model.PlantName</span>
+                <span class="info-chip"><i class="bi bi-calendar3 me-1"></i>@Model.RequestedDate.ToString("dd/MM/yyyy")</span>
+                <span class="info-chip"><i class="bi bi-person me-1"></i>@Model.RequesterName</span>
+            </div>
+        </div>
+        <div class="app-card-footer d-block">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="fw-semibold" id="progressLabel">@Model.ReviewedItems de @Model.TotalItems materiales revisados</span>
+                <small class="text-secondary">@Model.CompleteItems completos · @Model.ShortageItems con faltante</small>
+            </div>
+            <div class="progress fulfillment-progress">
+                <div class="progress-bar progress-bar-striped bg-warning"
+                     id="fulfillmentProgressBar"
+                     style="width:@(Model.TotalItems == 0 ? 100 : Model.ReviewedItems * 100 / Model.TotalItems)%"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="material-list d-flex flex-column gap-3">
+        @foreach (var item in Model.Items)
+        {
+            var isOther = item.ShortageReasonId.HasValue &&
+                          Model.ShortageReasons.Any(r => r.Id == item.ShortageReasonId && r.RequiresComment);
+            <article class="material-card @(item.Reviewed ? "reviewed" : string.Empty)"
+                     data-item-id="@item.Id"
+                     data-requested="@item.RequestedQuantity.ToString(System.Globalization.CultureInfo.InvariantCulture)">
+                <header class="material-header">
+                    <div class="flex-grow-1 min-width-0">
+                        <h6 class="part-number text-truncate mb-0">@item.PartNumber</h6>
+                        <p class="part-description mb-0">@item.Description</p>
+                        @if (!string.IsNullOrWhiteSpace(item.QuantityDescription))
+                        {
+                            <small class="text-secondary"><i class="bi bi-tag me-1"></i>@item.QuantityDescription</small>
+                        }
+                    </div>
+                    <span class="fulfillment-badge fulfillment-@(StatusText.ToneFor(item.FulfillmentStatus))" data-status-badge>
+                        @StatusText.For(item.FulfillmentStatus)
+                    </span>
+                </header>
+
+                <dl class="material-meta">
+                    <div>
+                        <dt><i class="bi bi-geo-alt me-1"></i>Ubicación</dt>
+                        <dd class="location-value">@(string.IsNullOrWhiteSpace(item.Location) ? "-" : item.Location)</dd>
+                    </div>
+                    <div>
+                        <dt><i class="bi bi-box-seam me-1"></i>Cantidad solicitada</dt>
+                        <dd>@item.RequestedQuantity @item.UnitOfMeasure</dd>
+                    </div>
+                </dl>
+
+                @if (!string.IsNullOrWhiteSpace(item.Observations))
+                {
+                    <p class="observation-note mb-2"><i class="bi bi-sticky me-1"></i>@item.Observations</p>
+                }
+
+                <div class="row g-2">
+                    <div class="col-7">
+                        <label class="form-label small fw-semibold mb-1">Cantidad surtida</label>
+                        <div class="quantity-stepper">
+                            <button type="button" class="stepper-button" data-step="-1" aria-label="Disminuir">
+                                <i class="bi bi-dash-lg"></i>
+                            </button>
+                            <input type="number" class="form-control quantity-input" data-quantity-input
+                                   value="@item.FulfilledQuantity.ToString(System.Globalization.CultureInfo.InvariantCulture)"
+                                   min="0" max="@item.RequestedQuantity" step="any" inputmode="decimal"
+                                   aria-label="Cantidad surtida" />
+                            <button type="button" class="stepper-button" data-step="1" aria-label="Aumentar">
+                                <i class="bi bi-plus-lg"></i>
+                            </button>
+                        </div>
+                        <div class="text-danger small mt-1 d-none" data-error></div>
+                    </div>
+                    <div class="col-5 shortage-col">
+                        <label class="form-label small fw-semibold mb-1">Razón del faltante</label>
+                        <select class="form-select" data-reason-select aria-label="Razón del faltante">
+                            <option value="">Sin faltante</option>
+                            @foreach (var reason in Model.ShortageReasons.Where(r => r.IsActive))
+                            {
+                                <option value="@reason.Id" selected="@(item.ShortageReasonId == reason.Id)"
+                                        data-requires-comment="@reason.RequiresComment">
+                                    @reason.Description
+                                </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-12 d-none" data-comment-wrap>
+                        <label class="form-label small fw-semibold mb-1">Especificar razón</label>
+                        <textarea class="form-control" rows="2" maxlength="300" data-comment-input
+                                  placeholder="Describe el motivo del faltante...">@item.ShortageComment</textarea>
+                    </div>
+                </div>
+
+                <button type="button" class="btn review-toggle w-100 mt-3 @(item.Reviewed ? "btn-outline-success" : "btn-success")"
+                        data-review-toggle>
+                    <i class="bi @(item.Reviewed ? "bi-pencil" : "bi-check2-circle") me-1" data-review-icon></i>
+                    <span data-review-label>@(item.Reviewed ? "Editar material" : "Marcar como revisado")</span>
+                </button>
+            </article>
+        }
+    </div>
+
+    <section class="finalize-bar">
+        <form id="finalizeForm" asp-controller="Fulfillment" asp-action="Finalize"
+              asp-route-requisitionNumber="@Model.RequisitionNumber" method="post">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill finalize-button" id="finalizeButton">
+                <i class="bi bi-check2-all me-2"></i>Finalizar requisición
+            </button>
+        </form>
+        <p class="text-center text-secondary small mt-2 mb-0">
+            Al finalizar, la requisición se moverá al historial.
+        </p>
+    </section>
+</div>
+
+@section Scripts {
+    <script>
+        window.fulfillmentContext = {
+            requisitionId: @Model.RequisitionId,
+            reviewedItems: @Model.ReviewedItems,
+            totalItems: @Model.TotalItems
+        };
+    </script>
+    <script src="~/js/fulfillment.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,18 @@
+﻿@model WarehouseRequisition.Models.ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+    ViewData["ActiveSection"] = string.Empty;
+}
+
+<div class="container py-5">
+    <div class="empty-state">
+        <div class="empty-state-icon error">
+            <i class="bi bi-exclamation-octagon"></i>
+        </div>
+        <h3>¡Ups! Algo salió mal</h3>
+        <p>Ocurrió un error al procesar la solicitud. Inténtalo de nuevo.</p>
+        <a class="btn btn-primary rounded-pill px-4" asp-controller="Home" asp-action="Index">
+            <i class="bi bi-house me-1"></i> Volver al inicio
+        </a>
+    </div>
+</div>

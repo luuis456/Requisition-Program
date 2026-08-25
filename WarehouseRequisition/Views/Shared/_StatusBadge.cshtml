@@ -1,0 +1,11 @@
+@model RequisitionStatus
+
+@{
+    var tone = StatusText.ToneFor(Model);
+    var label = StatusText.For(Model);
+}
+
+<span class="status-badge status-@tone">
+    <span class="badge-dot"></span>
+    @label
+</span>
