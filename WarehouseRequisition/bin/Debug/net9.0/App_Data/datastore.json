@@ -850,8 +850,9 @@
       "PlantId": 1,
       "AreaId": 1,
       "MachineId": 1,
-      "Status": 0,
+      "Status": 1,
       "CreatedBy": "Laura M\u00E9ndez R\u00EDos",
+      "StartedAt": "2026-08-24T19:39:08.469826-06:00",
       "Items": [
         {
           "Id": 1,
@@ -923,11 +924,8 @@
       "PlantId": 1,
       "AreaId": 2,
       "MachineId": 7,
-      "Status": 2,
+      "Status": 0,
       "CreatedBy": "Jorge Ram\u00EDrez Castillo",
-      "StartedAt": "2026-08-24T18:15:57.091787-06:00",
-      "ClosedAt": "2026-08-24T18:16:13.256192-06:00",
-      "ClosedBy": "Mar\u00EDa Fernanda L\u00F3pez",
       "Items": [
         {
           "Id": 1,
@@ -938,11 +936,10 @@
           "RequestedQuantity": 1,
           "UnitOfMeasure": "PZA",
           "Location": "D-04-01",
-          "FulfilledQuantity": 1,
-          "ShortageQuantity": 0,
-          "FulfillmentStatus": 1,
-          "Reviewed": true,
-          "ReviewedAt": "2026-08-24T18:15:57.126132-06:00"
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 1,
+          "FulfillmentStatus": 3,
+          "Reviewed": false
         },
         {
           "Id": 2,
@@ -953,11 +950,10 @@
           "RequestedQuantity": 4,
           "UnitOfMeasure": "M",
           "Location": "C-05-02",
-          "FulfilledQuantity": 4,
-          "ShortageQuantity": 0,
-          "FulfillmentStatus": 1,
-          "Reviewed": true,
-          "ReviewedAt": "2026-08-24T18:15:57.136856-06:00"
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 4,
+          "FulfillmentStatus": 3,
+          "Reviewed": false
         },
         {
           "Id": 3,
@@ -968,14 +964,13 @@
           "RequestedQuantity": 1,
           "UnitOfMeasure": "PZA",
           "Location": "A-08-02",
-          "FulfilledQuantity": 1,
-          "ShortageQuantity": 0,
-          "FulfillmentStatus": 1,
-          "Reviewed": true,
-          "ReviewedAt": "2026-08-24T18:15:57.146108-06:00"
+          "FulfilledQuantity": 0,
+          "ShortageQuantity": 1,
+          "FulfillmentStatus": 3,
+          "Reviewed": false
         }
       ],
-      "IsCompleted": true
+      "IsCompleted": false
     },
     {
       "Id": 3,
@@ -1559,38 +1554,6 @@
         }
       ],
       "IsCompleted": true
-    },
-    {
-      "Id": 11,
-      "RequisitionNumber": "REQ-20260824-0003",
-      "CreatedAt": "2026-08-24T18:16:37.084181-06:00",
-      "RequestedDate": "2026-08-24T00:00:00",
-      "RequesterId": 1,
-      "RequesterName": "Prueba Autom\u00E1tica",
-      "EmployeeNumber": "10021",
-      "PlantId": 1,
-      "AreaId": 1,
-      "MachineId": 1,
-      "Status": 0,
-      "CreatedBy": "Mar\u00EDa Fernanda L\u00F3pez",
-      "Notes": "Creada desde prueba automatizada",
-      "Items": [
-        {
-          "Id": 0,
-          "RequisitionId": 11,
-          "PartId": 1,
-          "PartNumber": "MAT-10001",
-          "Description": "Tornillo hexagonal M8 x 40 mm",
-          "RequestedQuantity": 5,
-          "UnitOfMeasure": "PZA",
-          "Location": "A-01-02",
-          "FulfilledQuantity": 0,
-          "ShortageQuantity": 5,
-          "FulfillmentStatus": 0,
-          "Reviewed": false
-        }
-      ],
-      "IsCompleted": false
     }
   ]
 }

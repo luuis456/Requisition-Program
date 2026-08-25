@@ -28,6 +28,8 @@ public class BarcodeService : IBarcodeService
             throw new ArgumentException("Barcode content supports ASCII characters only.", nameof(content));
         }
 
+        ValidateSymbologyContent(content, symbology);
+
         var writer = new BarcodeWriterPixelData
         {
             Format = MapFormat(symbology),
@@ -51,6 +53,31 @@ public class BarcodeService : IBarcodeService
         BarcodeSymbology.UpcA => BarcodeFormat.UPC_A,
         _ => BarcodeFormat.CODE_128
     };
+
+    private static void ValidateSymbologyContent(string content, BarcodeSymbology symbology)
+    {
+        switch (symbology)
+        {
+            case BarcodeSymbology.Ean13:
+            case BarcodeSymbology.Ean8:
+            case BarcodeSymbology.UpcA:
+                var requiredLength = symbology switch
+                {
+                    BarcodeSymbology.Ean13 => 12, // check digit is calculated automatically.
+                    BarcodeSymbology.Ean8 => 7,
+                    _ => 11
+                };
+                if (content.Length != requiredLength || content.Any(c => c is < '0' or > '9'))
+                {
+                    throw new ArgumentException(
+                        $"{symbology} requires exactly {requiredLength} digits (without the check digit).");
+                }
+                break;
+
+            case BarcodeSymbology.Code39 when content.Any(c => !"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-. $/+%".Contains(c)):
+                throw new ArgumentException("Code 39 supports A-Z, digits, space and - . $ / + % only.");
+        }
+    }
 
     private static byte[] ExtractLuminance(PixelData pixels)
     {

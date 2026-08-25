@@ -850,8 +850,9 @@
       "PlantId": 1,
       "AreaId": 1,
       "MachineId": 1,
-      "Status": 0,
+      "Status": 1,
       "CreatedBy": "Laura M\u00E9ndez R\u00EDos",
+      "StartedAt": "2026-08-24T19:39:08.469826-06:00",
       "Items": [
         {
           "Id": 1,

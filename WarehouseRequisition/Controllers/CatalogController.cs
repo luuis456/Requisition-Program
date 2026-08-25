@@ -44,7 +44,7 @@ public class CatalogController : Controller
         });
     }
 
-    /// <summary>Renders a linear barcode (Code 128) for a catalog part as a PNG image.</summary>
+    /// <summary>Renders a linear barcode for a catalog part as a PNG image.</summary>
     [HttpGet]
     public IActionResult PartBarcode(string partNumber, BarcodeSymbology symbology = BarcodeSymbology.Code128, bool download = false)
     {
@@ -54,10 +54,18 @@ public class CatalogController : Controller
             return NotFound();
         }
 
-        var bytes = _barcodeService.GeneratePng(part.PartNumber, symbology);
-        return download
-            ? File(bytes, "image/png", $"CB-{part.PartNumber}.png")
-            : File(bytes, "image/png");
+        try
+        {
+            var bytes = _barcodeService.GeneratePng(part.PartNumber, symbology);
+            return download
+                ? File(bytes, "image/png", $"CB-{part.PartNumber}.png")
+                : File(bytes, "image/png");
+        }
+        catch (ArgumentException ex)
+        {
+            // Symbology/content mismatch (e.g. EAN-13 with alphanumeric part number).
+            return BadRequest(ex.Message);
+        }
     }
 
     /// <summary>JSON lookup used by the create screen to auto-fill part data.</summary>
