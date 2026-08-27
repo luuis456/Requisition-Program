@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "U8k763U3dKU=",
+  "dgSpecHash": "oYuc8qODGMk=",
   "success": true,
   "projectFilePath": "/Users/luis/Desktop/Requisitions Program/WarehouseRequisition/WarehouseRequisition.csproj",
   "expectedPackageFiles": [
     "/Users/luis/.nuget/packages/qrcoder/1.6.0/qrcoder.1.6.0.nupkg.sha512",
-    "/Users/luis/.nuget/packages/zxing.net/0.16.10/zxing.net.0.16.10.nupkg.sha512"
+    "/Users/luis/.nuget/packages/zxing.net/0.16.10/zxing.net.0.16.10.nupkg.sha512",
+    "/Users/luis/.nuget/packages/microsoft.netcore.app.ref/9.0.19/microsoft.netcore.app.ref.9.0.19.nupkg.sha512",
+    "/Users/luis/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.19/microsoft.aspnetcore.app.ref.9.0.19.nupkg.sha512",
+    "/Users/luis/.nuget/packages/microsoft.netcore.app.host.osx-arm64/9.0.19/microsoft.netcore.app.host.osx-arm64.9.0.19.nupkg.sha512"
   ],
   "logs": []
 }

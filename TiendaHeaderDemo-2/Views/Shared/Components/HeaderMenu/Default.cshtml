@@ -1,0 +1,70 @@
+@model List<MenuItem>
+@using System.Text.Json
+
+<header class="site-header">
+
+    <div class="utility-bar">
+        <div class="utility-bar-inner">
+            <span class="utility-item">Tiendas y horarios</span>
+            <span class="utility-item">Rastrea tu pedido</span>
+            <span class="utility-item utility-item--right">Ayuda</span>
+            <span class="utility-item">Mi cuenta</span>
+        </div>
+    </div>
+
+    <div class="main-bar">
+        <button type="button" class="hamburger" aria-label="Abrir menú de categorías" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <a href="/" class="logo">Tienda<span>MX</span></a>
+
+        <div class="search-bar" role="search">
+            <input type="search" placeholder="Busca productos, marcas y más" aria-label="Buscar" />
+            <button type="button" aria-label="Buscar">🔍</button>
+        </div>
+
+        <div class="header-actions">
+            <button type="button" class="action-btn" aria-label="Favoritos">
+                <span class="action-icon">♡</span>
+                <span class="action-label">Favoritos</span>
+            </button>
+            <button type="button" class="action-btn" aria-label="Mi cuenta">
+                <span class="action-icon">👤</span>
+                <span class="action-label">Cuenta</span>
+            </button>
+            <button type="button" class="action-btn action-btn--cart" aria-label="Carrito">
+                <span class="action-icon">🛒</span>
+                <span class="action-label">Carrito</span>
+                <span class="cart-count">3</span>
+            </button>
+        </div>
+    </div>
+
+    <nav class="category-nav" aria-label="Categorías">
+        <div class="category-nav-inner">
+            <button type="button" class="categories-trigger">
+                <span class="categories-trigger-icon">☰</span>
+                Categorías
+            </button>
+            <div class="cascade-menu-wrapper">
+                @await Html.PartialAsync("_MenuLevel", new MenuLevelViewModel { Items = Model, Level = 1 })
+            </div>
+        </div>
+    </nav>
+
+    @* Full 3-level tree, consumed by header.js to build both the desktop
+       mega-panels and the mobile stacked drawer without duplicating markup. *@
+    <script id="menu-data" type="application/json">@Html.Raw(JsonSerializer.Serialize(Model, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }))</script>
+
+    <div class="drawer-overlay"></div>
+
+    <aside class="side-drawer" aria-hidden="true">
+        <div class="drawer-header">
+            <span class="drawer-header-title">Categorías</span>
+            <button type="button" class="drawer-close" aria-label="Cerrar menú">✕</button>
+        </div>
+        <div class="drawer-panels"></div>
+    </aside>
+
+</header>

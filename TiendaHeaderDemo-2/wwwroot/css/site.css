@@ -1,0 +1,459 @@
+/* =========================================================
+   Design tokens
+   ========================================================= */
+:root {
+    --color-ink: #14181B;
+    --color-bg: #FFFFFF;
+    --color-primary: #0F4C4A;      /* deep petrol teal — header base */
+    --color-primary-dark: #0A3634;
+    --color-accent: #F2545B;       /* coral — cart badge, tags, CTA */
+    --color-accent-dark: #D9414A;
+    --color-surface: #F7F5F1;      /* warm neutral — panels, drawer bg */
+    --color-border: #E7E3DA;
+    --color-muted: #6B7178;
+
+    --font-display: 'Poppins', 'Segoe UI', sans-serif;
+    --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+    --header-radius: 10px;
+    --transition-fast: .15s ease;
+    --transition-base: .3s cubic-bezier(.4, 0, .2, 1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* =========================================================
+   Utility bar
+   ========================================================= */
+.utility-bar {
+    background: var(--color-primary-dark);
+    color: #EAF3F2;
+    font-size: .78rem;
+}
+
+.utility-bar-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 6px 16px;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.utility-item--right { margin-left: auto; }
+
+/* =========================================================
+   Main bar
+   ========================================================= */
+.site-header { position: relative; font-family: var(--font-body); }
+
+.main-bar {
+    background: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 16px;
+}
+
+.hamburger {
+    background: transparent;
+    border: none;
+    width: 34px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.logo span { color: var(--color-accent); }
+
+.search-bar {
+    flex: 1 1 auto;
+    display: none;
+    align-items: center;
+    background: #fff;
+    border-radius: 999px;
+    overflow: hidden;
+    max-width: 640px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    font-size: .9rem;
+    font-family: inherit;
+}
+
+.search-bar button {
+    background: transparent;
+    border: none;
+    padding: 0 14px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: .68rem;
+    padding: 4px 8px;
+    position: relative;
+    border-radius: 8px;
+    transition: background var(--transition-fast);
+}
+
+.action-btn:hover { background: rgba(255,255,255,.12); }
+.action-icon { font-size: 1.15rem; }
+.action-label { display: none; }
+
+.cart-count {
+    position: absolute;
+    top: -2px;
+    right: 2px;
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: 999px;
+    font-size: .62rem;
+    min-width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 3px;
+}
+
+/* =========================================================
+   Category nav (desktop) — "Categorías" trigger opens a vertical
+   level-1 panel; each level flies out a submenu to its right on
+   hover, like a classic nested/cascading menu.
+   ========================================================= */
+.category-nav {
+    position: relative;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    display: none;
+}
+
+.category-nav-inner {
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.categories-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 0 0 6px 6px;
+    font-size: .88rem;
+    font-weight: 600;
+}
+
+.categories-trigger-icon { font-size: .95rem; }
+
+.cascade-menu-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    z-index: 45;
+}
+
+/* Root (level 1) panel: hidden until the trigger/wrapper area is hovered */
+.cascade-list--lvl1 {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    min-width: 260px;
+    border: 1px solid var(--color-border);
+    border-radius: 0 8px 8px 8px;
+    box-shadow: 0 20px 40px rgba(20, 24, 27, .16);
+    padding: 6px 0;
+}
+
+.category-nav-inner:hover .cascade-list--lvl1,
+.category-nav-inner.force-open .cascade-list--lvl1 {
+    display: flex;
+}
+
+.cascade-list { list-style: none; margin: 0; padding: 0; }
+
+.cascade-item { position: relative; }
+
+.cascade-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: .87rem;
+    color: var(--color-ink);
+    white-space: nowrap;
+    transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.cascade-label { flex: 1; }
+
+.cascade-list--lvl1 > .cascade-item > .cascade-link {
+    font-weight: 600;
+    padding: 11px 18px;
+}
+
+.cascade-item:hover > .cascade-link,
+.cascade-item.menu-open > .cascade-link {
+    background: var(--color-surface);
+    color: var(--color-primary);
+}
+
+.nav-icon { font-size: 1rem; }
+
+.cascade-caret {
+    color: var(--color-muted);
+    font-size: 1rem;
+}
+
+.cascade-badge {
+    padding: 1px 7px;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: .62rem;
+    border-radius: 999px;
+}
+
+/* Level 2+: fly out to the right of the parent item, one level per hover */
+.cascade-list--lvl2,
+.cascade-list--lvl3 {
+    display: none;
+    position: absolute;
+    top: -7px;
+    left: 100%;
+    min-width: 240px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(20, 24, 27, .16);
+    padding: 6px 0;
+}
+
+.cascade-item:hover > .cascade-list--lvl2,
+.cascade-item.menu-open > .cascade-list--lvl2,
+.cascade-item:hover > .cascade-list--lvl3,
+.cascade-item.menu-open > .cascade-list--lvl3 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================================
+   Mobile stacked drawer
+   ========================================================= */
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 24, 27, .45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+    z-index: 50;
+}
+
+.drawer-overlay.open { opacity: 1; pointer-events: auto; }
+
+.side-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: min(85vw, 360px);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    z-index: 60;
+}
+
+.side-drawer.open { transform: translateX(0); }
+
+.drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: var(--color-primary);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.drawer-header-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.drawer-close {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.drawer-panels {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    background: var(--color-surface);
+}
+
+.drawer-panel {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    transition: transform var(--transition-base);
+    will-change: transform;
+}
+
+.drawer-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.drawer-back {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    padding: 2px 6px 2px 0;
+}
+
+.drawer-title {
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+.drawer-list { list-style: none; margin: 0; padding: 4px 0; }
+
+.drawer-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: .9rem;
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.drawer-icon { font-size: 1.05rem; }
+
+.drawer-badge {
+    margin-left: auto;
+    padding: 1px 7px;
+    background: var(--color-accent);
+    color: #fff;
+    font-size: .65rem;
+    border-radius: 999px;
+}
+
+.drawer-chevron {
+    margin-left: auto;
+    color: var(--color-muted);
+    font-size: 1.1rem;
+}
+
+.drawer-item:has(.drawer-chevron) .drawer-badge { margin-left: 8px; }
+
+/* =========================================================
+   Demo page content (not part of the header deliverable)
+   ========================================================= */
+.page-content { max-width: 1240px; margin: 0 auto; padding: 48px 16px; }
+
+.hero h1 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 8px; }
+.hero p { color: var(--color-muted); max-width: 640px; }
+
+.demo-grid {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.demo-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--header-radius);
+    padding: 18px;
+    font-size: .9rem;
+    color: var(--color-ink);
+}
+
+.site-footer {
+    border-top: 1px solid var(--color-border);
+    padding: 20px 16px;
+    text-align: center;
+    color: var(--color-muted);
+    font-size: .8rem;
+}
+
+/* =========================================================
+   Desktop breakpoint
+   ========================================================= */
+@media (min-width: 992px) {
+    .hamburger { display: none; }
+    .search-bar { display: flex; }
+    .action-label { display: block; }
+    .category-nav { display: block; }
+    .side-drawer { display: none; }
+    .drawer-overlay { display: none; }
+}

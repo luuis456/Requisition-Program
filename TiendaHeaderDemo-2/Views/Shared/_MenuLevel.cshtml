@@ -1,0 +1,29 @@
+@model MenuLevelViewModel
+
+<ul class="cascade-list cascade-list--lvl@(Model.Level)">
+    @foreach (var item in Model.Items)
+    {
+        var hasChildren = item.Children != null && item.Children.Count > 0;
+        <li class="cascade-item @(hasChildren ? "has-children" : "")">
+            <a href="@item.Url" class="cascade-link">
+                @if (Model.Level == 1 && !string.IsNullOrEmpty(item.Icon))
+                {
+                    <span class="nav-icon">@item.Icon</span>
+                }
+                <span class="cascade-label">@item.Name</span>
+                @if (!string.IsNullOrEmpty(item.Badge))
+                {
+                    <span class="cascade-badge">@item.Badge</span>
+                }
+                @if (hasChildren)
+                {
+                    <span class="cascade-caret">›</span>
+                }
+            </a>
+            @if (hasChildren)
+            {
+                @await Html.PartialAsync("_MenuLevel", new MenuLevelViewModel { Items = item.Children, Level = Model.Level + 1 })
+            }
+        </li>
+    }
+</ul>
